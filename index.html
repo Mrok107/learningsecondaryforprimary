@@ -66,10 +66,24 @@
       <form onsubmit="submitSignUp(event)">
         <label for="signup-name">Name:</label>
         <input type="text" id="signup-name" required placeholder="Your name">
+
         <label for="signup-email">Email:</label>
         <input type="email" id="signup-email" required placeholder="example@email.com">
+
         <label for="signup-password">Password:</label>
         <input type="password" id="signup-password" required placeholder="Enter password">
+
+        <label for="signup-year">Year of School:</label>
+        <select id="signup-year" required>
+          <option value="">Select your year</option>
+          <option value="Year 1">Year 1</option>
+          <option value="Year 2">Year 2</option>
+          <option value="Year 3">Year 3</option>
+          <option value="Year 4">Year 4</option>
+          <option value="Year 5">Year 5</option>
+          <option value="Year 6">Year 6</option>
+        </select>
+
         <button type="submit">Sign Up</button>
       </form>
     </div>
