@@ -6,12 +6,34 @@
   <meta name="description" content="Fun learning website for primary students who want to learn secondary school subjects." />
   <title>Learn Smart!</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Added CSS for Sign Up / Log In buttons */
+    .auth-buttons {
+      margin-top: 10px;
+    }
+
+    .auth-buttons button {
+      margin-left: 5px;
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .auth-buttons button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="container header-content">
       <h1>🌟 Learn Smart!</h1>
       <p>Fun learning for curious primary students</p>
+      
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="#math">Math</a></li>
@@ -20,6 +42,12 @@
           <li><a href="#history">History</a></li>
         </ul>
       </nav>
+
+      <!-- Added Sign Up / Log In Buttons -->
+      <div class="auth-buttons">
+        <button onclick="openSignUp()">Sign Up</button>
+        <button onclick="openLogin()">Log In</button>
+      </div>
     </div>
   </header>
 
@@ -158,6 +186,15 @@
     function toggleQuiz(quizId) {
       const quiz = document.getElementById(quizId);
       quiz.style.display = quiz.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // New JS functions for Sign Up / Log In buttons
+    function openSignUp() {
+      alert("Sign Up page coming soon! 🎉");
+    }
+
+    function openLogin() {
+      alert("Log In page coming soon! 🔑");
     }
   </script>
 </body>
