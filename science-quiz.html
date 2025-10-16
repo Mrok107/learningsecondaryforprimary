@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science Quiz | Learn Smart!</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>🔬 Science Quiz</h1>
+      <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>Test your Science knowledge!</h2>
+
+    <div class="quiz">
+      <p>1. What pulls everything toward the Earth?</p>
+      <button onclick="checkAnswer(this,'wrong')">Magnetism</button>
+      <button onclick="checkAnswer(this,'correct')">Gravity</button>
+      <button onclick="checkAnswer(this,'wrong')">Friction</button>
+
+      <p>2. Plants make food using sunlight. What is this process called?</p>
+      <button onclick="checkAnswer(this,'correct')">Photosynthesis</button>
+      <button onclick="checkAnswer(this,'wrong')">Digestion</button>
+      <button onclick="checkAnswer(this,'wrong')">Evaporation</button>
+
+      <p>3. Everything around you is made of tiny building blocks called…</p>
+      <button onclick="checkAnswer(this,'wrong')">Cells</button>
+      <button onclick="checkAnswer(this,'correct')">Atoms</button>
+      <button onclick="checkAnswer(this,'wrong')">Molecules</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Learn Smart | Made for young learners 🌈</p>
+    </div>
+  </footer>
+</body>
+</html>
