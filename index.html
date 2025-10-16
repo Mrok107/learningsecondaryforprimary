@@ -6,6 +6,24 @@
   <meta name="description" content="Fun learning website for primary students who want to learn secondary school subjects." />
   <title>Learn Smart!</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Quiz Styles */
+    .quiz {
+      margin-bottom: 2rem;
+    }
+    .quiz button {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .quiz button:disabled {
+      cursor: default;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,6 +36,7 @@
           <li><a href="#science">Science</a></li>
           <li><a href="#english">English</a></li>
           <li><a href="#history">History</a></li>
+          <li><a href="#quizzes">Quizzes</a></li>
         </ul>
       </nav>
     </div>
@@ -59,6 +78,87 @@
         <li>The first airplane flew in 1903 — that’s just over 100 years ago!</li>
       </ul>
     </section>
+
+    <!-- Quizzes Section -->
+    <section id="quizzes" class="card">
+      <h2>📝 Fun Quizzes!</h2>
+      <p>Test what you learned in Math, Science, English, and History!</p>
+
+      <!-- Math Quiz -->
+      <div class="quiz">
+        <h3>Math Quiz 🧮</h3>
+        <p>1. Solve for x: x + 4 = 9</p>
+        <button onclick="checkAnswer(this, 'correct')">5</button>
+        <button onclick="checkAnswer(this, 'wrong')">13</button>
+        <button onclick="checkAnswer(this, 'wrong')">4</button>
+
+        <p>2. Which fraction is bigger?</p>
+        <button onclick="checkAnswer(this, 'correct')">1/2</button>
+        <button onclick="checkAnswer(this, 'wrong')">1/4</button>
+
+        <p>3. How many sides does a hexagon have?</p>
+        <button onclick="checkAnswer(this, 'correct')">6</button>
+        <button onclick="checkAnswer(this, 'wrong')">5</button>
+        <button onclick="checkAnswer(this, 'wrong')">8</button>
+      </div>
+
+      <!-- Science Quiz -->
+      <div class="quiz">
+        <h3>Science Quiz 🔬</h3>
+        <p>1. What pulls everything toward the Earth?</p>
+        <button onclick="checkAnswer(this, 'wrong')">Magnetism</button>
+        <button onclick="checkAnswer(this, 'correct')">Gravity</button>
+        <button onclick="checkAnswer(this, 'wrong')">Friction</button>
+
+        <p>2. Plants make food using sunlight. What is this process called?</p>
+        <button onclick="checkAnswer(this, 'correct')">Photosynthesis</button>
+        <button onclick="checkAnswer(this, 'wrong')">Digestion</button>
+        <button onclick="checkAnswer(this, 'wrong')">Evaporation</button>
+
+        <p>3. Everything around you is made of tiny building blocks called…</p>
+        <button onclick="checkAnswer(this, 'wrong')">Cells</button>
+        <button onclick="checkAnswer(this, 'correct')">Atoms</button>
+        <button onclick="checkAnswer(this, 'wrong')">Molecules</button>
+      </div>
+
+      <!-- English Quiz -->
+      <div class="quiz">
+        <h3>English Quiz 📚</h3>
+        <p>1. Which of these is a complete sentence?</p>
+        <button onclick="checkAnswer(this, 'wrong')">Jumped over the fence.</button>
+        <button onclick="checkAnswer(this, 'correct')">The dog jumps over the fence.</button>
+        <button onclick="checkAnswer(this, 'wrong')">Over the fence.</button>
+
+        <p>2. What does “curious” mean?</p>
+        <button onclick="checkAnswer(this, 'correct')">Likes to ask questions</button>
+        <button onclick="checkAnswer(this, 'wrong')">Always sleepy</button>
+        <button onclick="checkAnswer(this, 'wrong')">Very tall</button>
+
+        <p>3. Every sentence needs…</p>
+        <button onclick="checkAnswer(this, 'correct')">A subject and a verb</button>
+        <button onclick="checkAnswer(this, 'wrong')">A number and a color</button>
+        <button onclick="checkAnswer(this, 'wrong')">A dog and a cat</button>
+      </div>
+
+      <!-- History Quiz -->
+      <div class="quiz">
+        <h3>History Quiz 🏺</h3>
+        <p>1. Which of these is over 4,000 years old?</p>
+        <button onclick="checkAnswer(this, 'correct')">The Great Pyramid</button>
+        <button onclick="checkAnswer(this, 'wrong')">The Eiffel Tower</button>
+        <button onclick="checkAnswer(this, 'wrong')">Big Ben</button>
+
+        <p>2. Who flew the first airplane in 1903?</p>
+        <button onclick="checkAnswer(this, 'correct')">The Wright Brothers</button>
+        <button onclick="checkAnswer(this, 'wrong')">Christopher Columbus</button>
+        <button onclick="checkAnswer(this, 'wrong')">Neil Armstrong</button>
+
+        <p>3. History is the story of…</p>
+        <button onclick="checkAnswer(this, 'wrong')">The future</button>
+        <button onclick="checkAnswer(this, 'correct')">The past</button>
+        <button onclick="checkAnswer(this, 'wrong')">Outer space</button>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -66,5 +166,19 @@
       <p>© 2025 Learn Smart | Made for young learners 🌈</p>
     </div>
   </footer>
+
+  <script>
+    function checkAnswer(button, type) {
+      if (type === 'correct') {
+        button.style.backgroundColor = '#4CAF50'; // green
+        button.innerText = '✅ Correct!';
+      } else {
+        button.style.backgroundColor = '#f44336'; // red
+        button.innerText = '❌ Try again';
+      }
+      const siblings = button.parentNode.querySelectorAll('button');
+      siblings.forEach(btn => btn.disabled = true);
+    }
+  </script>
 </body>
 </html>
