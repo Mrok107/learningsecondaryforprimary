@@ -1,74 +1,112 @@
-/* Base Styles */
+/* General Reset */
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-family: "Comic Sans MS", "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fef6e4;
+}
+
+/* Base */
+body {
+  font-family: "Poppins", "Comic Sans MS", sans-serif;
+  line-height: 1.6;
+  background: #fef6e4;
   color: #333;
+}
+
+/* Containers */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Header */
 header {
-  background-color: #00a8e8;
+  background: linear-gradient(135deg, #00a8e8, #0077b6);
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 header h1 {
-  margin-bottom: 0.2rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
 }
 
+header p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Navigation */
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0.5rem 0;
 }
 
 nav li {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0 0.8rem;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.2s;
 }
 
 nav a:hover,
 nav a:focus {
-  text-decoration: underline;
+  color: #ffdd00;
 }
 
-/* Sections */
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
+/* Sections (Cards) */
+.card {
+  background: #fff;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
 
-section {
-  background: #fff8dc;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+.card:hover {
+  transform: translateY(-4px);
 }
 
-section h2 {
-  color: #0066cc;
+.card h2 {
+  color: #0077b6;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  margin-left: 1rem;
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  background-color: #00a8e8;
+  background: #0077b6;
   color: white;
+  text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav li {
+    display: block;
+    margin: 0.5rem 0;
+  }
 }
