@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fun learning website for primary students who want to learn secondary school subjects.">
   <title>Learn Smart!</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
@@ -15,7 +14,7 @@
       <h1>🌟 Learn Smart!</h1>
       <p>Fun learning for curious primary students</p>
 
-      <!-- Top-right user greeting -->
+      <!-- Top-right greeting -->
       <div id="user-greeting" class="user-greeting"></div>
 
       <!-- Navigation -->
@@ -26,7 +25,7 @@
         </ul>
       </nav>
 
-      <!-- Sign Up / Log In Buttons -->
+      <!-- Auth Buttons -->
       <div class="auth-buttons">
         <button onclick="openSignUp()">Sign Up</button>
         <button onclick="openLogin()">Log In</button>
@@ -64,17 +63,17 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('signup-modal')">&times;</span>
       <h2>Sign Up 🌟</h2>
-      <form onsubmit="submitSignUp(event)">
-        <label for="signup-name">Name:</label>
+      <form id="signup-form">
+        <label>Name:</label>
         <input type="text" id="signup-name" required placeholder="Your name">
 
-        <label for="signup-email">Email:</label>
+        <label>Email:</label>
         <input type="email" id="signup-email" required placeholder="example@email.com">
 
-        <label for="signup-password">Password:</label>
+        <label>Password:</label>
         <input type="password" id="signup-password" required placeholder="Enter password">
 
-        <label for="signup-year">Year of School:</label>
+        <label>Year of School:</label>
         <select id="signup-year" required>
           <option value="">Select your year</option>
           <option value="Year 1">Year 1</option>
@@ -95,15 +94,16 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal('login-modal')">&times;</span>
       <h2>Log In 🔑</h2>
-      <form onsubmit="submitLogin(event)">
-        <label for="login-name">Name:</label>
+      <form id="login-form">
+        <label>Name:</label>
         <input type="text" id="login-name" required placeholder="Your name">
 
-        <label for="login-email">Email:</label>
+        <label>Email:</label>
         <input type="email" id="login-email" required placeholder="example@email.com">
 
-        <label for="login-password">Password:</label>
+        <label>Password:</label>
         <input type="password" id="login-password" required placeholder="Enter password">
+
         <button type="submit">Log In</button>
       </form>
     </div>
