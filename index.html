@@ -16,10 +16,8 @@
 
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#math">Math</a></li>
-          <li><a href="#science">Science</a></li>
-          <li><a href="#english">English</a></li>
-          <li><a href="#history">History</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#subjects">Subjects</a></li>
         </ul>
       </nav>
 
@@ -32,110 +30,20 @@
   </header>
 
   <main class="container">
-    <!-- Math Section -->
-    <section id="math" class="card">
-      <h2>🧮 Math</h2>
-      <p>Learn about fractions, algebra, and geometry — the building blocks of secondary math!</p>
-      <ul>
-        <li>What is algebra? <em>(x + 2 = 5 → x = 3!)</em></li>
-        <li>Fun Fact: Zero was invented over 1,500 years ago!</li>
-      </ul>
-      <button class="show-quiz-btn" onclick="toggleQuiz('math-quiz')">Take Math Quiz 📝</button>
-      <div id="math-quiz" class="quiz" style="display:none;">
-        <p>1. Solve for x: x + 4 = 9</p>
-        <button onclick="checkAnswer(this,'correct')">5</button>
-        <button onclick="checkAnswer(this,'wrong')">13</button>
-        <button onclick="checkAnswer(this,'wrong')">4</button>
-
-        <p>2. Which fraction is bigger?</p>
-        <button onclick="checkAnswer(this,'correct')">1/2</button>
-        <button onclick="checkAnswer(this,'wrong')">1/4</button>
-
-        <p>3. How many sides does a hexagon have?</p>
-        <button onclick="checkAnswer(this,'correct')">6</button>
-        <button onclick="checkAnswer(this,'wrong')">5</button>
-        <button onclick="checkAnswer(this,'wrong')">8</button>
-      </div>
+    <!-- About Section -->
+    <section id="about" class="card">
+      <h2>Welcome to Learn Smart!</h2>
+      <p>Explore fun and interactive quizzes to learn Math, Science, English, and History!</p>
     </section>
 
-    <!-- Science Section -->
-    <section id="science" class="card">
-      <h2>🔬 Science</h2>
-      <p>Explore chemistry, physics, and biology — discover how the world works!</p>
-      <ul>
-        <li>Everything around you is made of atoms.</li>
-        <li>Plants make their own food using sunlight — that’s photosynthesis!</li>
-      </ul>
-      <button class="show-quiz-btn" onclick="toggleQuiz('science-quiz')">Take Science Quiz 📝</button>
-      <div id="science-quiz" class="quiz" style="display:none;">
-        <p>1. What pulls everything toward the Earth?</p>
-        <button onclick="checkAnswer(this,'wrong')">Magnetism</button>
-        <button onclick="checkAnswer(this,'correct')">Gravity</button>
-        <button onclick="checkAnswer(this,'wrong')">Friction</button>
-
-        <p>2. Plants make food using sunlight. What is this process called?</p>
-        <button onclick="checkAnswer(this,'correct')">Photosynthesis</button>
-        <button onclick="checkAnswer(this,'wrong')">Digestion</button>
-        <button onclick="checkAnswer(this,'wrong')">Evaporation</button>
-
-        <p>3. Everything around you is made of tiny building blocks called…</p>
-        <button onclick="checkAnswer(this,'wrong')">Cells</button>
-        <button onclick="checkAnswer(this,'correct')">Atoms</button>
-        <button onclick="checkAnswer(this,'wrong')">Molecules</button>
-      </div>
-    </section>
-
-    <!-- English Section -->
-    <section id="english" class="card">
-      <h2>📚 English</h2>
-      <p>Learn how to write essays, read stories, and use new vocabulary.</p>
-      <ul>
-        <li>Tip: Every sentence needs a subject and a verb.</li>
-        <li>Fun Word: “Curious” means eager to learn!</li>
-      </ul>
-      <button class="show-quiz-btn" onclick="toggleQuiz('english-quiz')">Take English Quiz 📝</button>
-      <div id="english-quiz" class="quiz" style="display:none;">
-        <p>1. Which of these is a complete sentence?</p>
-        <button onclick="checkAnswer(this,'wrong')">Jumped over the fence.</button>
-        <button onclick="checkAnswer(this,'correct')">The dog jumps over the fence.</button>
-        <button onclick="checkAnswer(this,'wrong')">Over the fence.</button>
-
-        <p>2. What does “curious” mean?</p>
-        <button onclick="checkAnswer(this,'correct')">Likes to ask questions</button>
-        <button onclick="checkAnswer(this,'wrong')">Always sleepy</button>
-        <button onclick="checkAnswer(this,'wrong')">Very tall</button>
-
-        <p>3. Every sentence needs…</p>
-        <button onclick="checkAnswer(this,'correct')">A subject and a verb</button>
-        <button onclick="checkAnswer(this,'wrong')">A number and a color</button>
-        <button onclick="checkAnswer(this,'wrong')">A dog and a cat</button>
-      </div>
-    </section>
-
-    <!-- History Section -->
-    <section id="history" class="card">
-      <h2>🏺 History</h2>
-      <p>Discover amazing stories from the past — ancient Egypt, explorers, and inventors!</p>
-      <ul>
-        <li>The Great Pyramid is over 4,000 years old.</li>
-        <li>The first airplane flew in 1903 — that’s just over 100 years ago!</li>
-      </ul>
-      <button class="show-quiz-btn" onclick="toggleQuiz('history-quiz')">Take History Quiz 📝</button>
-      <div id="history-quiz" class="quiz" style="display:none;">
-        <p>1. Which of these is over 4,000 years old?</p>
-        <button onclick="checkAnswer(this,'correct')">The Great Pyramid</button>
-        <button onclick="checkAnswer(this,'wrong')">The Eiffel Tower</button>
-        <button onclick="checkAnswer(this,'wrong')">Big Ben</button>
-
-        <p>2. Who flew the first airplane in 1903?</p>
-        <button onclick="checkAnswer(this,'correct')">The Wright Brothers</button>
-        <button onclick="checkAnswer(this,'wrong')">Christopher Columbus</button>
-        <button onclick="checkAnswer(this,'wrong')">Neil Armstrong</button>
-
-        <p>3. History is the story of…</p>
-        <button onclick="checkAnswer(this,'wrong')">The future</button>
-        <button onclick="checkAnswer(this,'correct')">The past</button>
-        <button onclick="checkAnswer(this,'wrong')">Outer space</button>
+    <!-- Subjects Section -->
+    <section id="subjects" class="card">
+      <h2>📚 Subjects</h2>
+      <div class="subject-buttons">
+        <a href="math-quiz.html" class="subject-btn">🧮 Math</a>
+        <a href="science-quiz.html" class="subject-btn">🔬 Science</a>
+        <a href="english-quiz.html" class="subject-btn">📚 English</a>
+        <a href="history-quiz.html" class="subject-btn">🏺 History</a>
       </div>
     </section>
   </main>
