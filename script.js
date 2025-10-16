@@ -26,9 +26,12 @@ function submitSignUp(event) {
     return;
   }
 
-  // Show greeting on homepage
-  const greetingDiv = document.getElementById('user-greeting');
-  greetingDiv.innerText = `Welcome, ${name} (${year})!`;
+  // Store in localStorage
+  localStorage.setItem('userName', name);
+  localStorage.setItem('userYear', year);
+
+  // Update greeting
+  updateGreeting();
 
   alert(`Sign Up Successful! Welcome, ${name} (${year})!`);
   closeModal('signup-modal');
@@ -36,19 +39,47 @@ function submitSignUp(event) {
 
 function submitLogin(event) {
   event.preventDefault();
-
   const name = document.getElementById('login-name').value;
+
+  // Store in localStorage
+  localStorage.setItem('userName', name);
+
+  // If year exists from sign-up, keep it
+  if (!localStorage.getItem('userYear')) {
+    const year = prompt('Enter your year of school:');
+    localStorage.setItem('userYear', year);
+  }
 
   // Hide Sign Up / Log In buttons
   const authButtons = document.querySelector('.auth-buttons');
   authButtons.style.display = 'none';
 
-  // Show greeting at top-right
-  const greetingDiv = document.getElementById('user-greeting');
-  greetingDiv.innerText = `Hello, ${name}!`;
+  // Update greeting
+  updateGreeting();
 
   closeModal('login-modal');
   alert(`Logged In Successfully! Welcome back, ${name}!`);
+}
+
+/* =============================
+   🌟 Update Greeting
+============================= */
+function updateGreeting() {
+  const name = localStorage.getItem('userName');
+  const year = localStorage.getItem('userYear');
+  const greetingDiv = document.getElementById('user-greeting');
+
+  if (name && year) {
+    greetingDiv.innerText = `Hello, ${name} (${year})!`;
+  } else if (name) {
+    greetingDiv.innerText = `Hello, ${name}!`;
+  }
+
+  // Hide auth buttons if logged in
+  if (name) {
+    const authButtons = document.querySelector('.auth-buttons');
+    authButtons.style.display = 'none';
+  }
 }
 
 /* =============================
@@ -60,4 +91,11 @@ window.onclick = function(event) {
 
   if (event.target === signupModal) signupModal.style.display = 'none';
   if (event.target === loginModal) loginModal.style.display = 'none';
+}
+
+/* =============================
+   🌟 Run on Page Load
+============================= */
+window.onload = function() {
+  updateGreeting();
 }
