@@ -57,7 +57,7 @@ nav a:hover, nav a:focus { color: #ffdd00; text-decoration: underline; }
 .quiz button:hover:not(:disabled) { background-color: #00a8e8; color: white; transform: translateY(-2px); }
 .quiz button:disabled { cursor: default; opacity: 0.7; }
 
-/* Take Quiz button */
+/* Take Quiz button (not used anymore) */
 .show-quiz-btn {
   margin: 1rem 0;
   padding: 0.6rem 1.2rem;
@@ -71,6 +71,48 @@ nav a:hover, nav a:focus { color: #ffdd00; text-decoration: underline; }
 }
 .show-quiz-btn:hover { background-color: #0077b6; }
 
+/* 🟢 Auth Buttons */
+.auth-buttons { margin-top: 1rem; }
+.auth-buttons button {
+  margin: 0.3rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ffdd00;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
+}
+.auth-buttons button:hover { background-color: #ffc107; transform: translateY(-2px); }
+
+/* 🌟 Subject Buttons on Home Page */
+.subject-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.subject-btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #00a8e8, #0077b6);
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.subject-btn:hover {
+  background: linear-gradient(135deg, #0077b6, #00a8e8);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
 /* 🦶 Footer */
 footer { background: #0077b6; color: white; text-align: center; padding: 1rem; font-size: 0.95rem; border-top: 4px solid #00a8e8; }
 
@@ -80,98 +122,5 @@ footer { background: #0077b6; color: white; text-align: center; padding: 1rem; f
   nav li { display: block; margin: 0.5rem 0; }
   .card { padding: 1.2rem; }
   .quiz button, .show-quiz-btn { width: 100%; }
-}
-
-/* 🟢 Auth Buttons */
-.auth-buttons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.auth-buttons button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  background-color: #ffdd00;
-  color: #0077b6;
-  border: 2px solid #0077b6;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s, transform 0.2s;
-}
-
-.auth-buttons button:hover {
-  background-color: #ffc107;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 600px) {
-  .auth-buttons button { width: 48%; }
-}
-
-/* 🌈 Modals */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.6);
-  padding-top: 60px;
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto;
-  padding: 2rem;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  text-align: center;
-  animation: modalPop 0.3s ease-out;
-}
-
-.modal-content h2 { margin-bottom: 1rem; color: #0077b6; }
-
-.modal-content form { display: flex; flex-direction: column; gap: 0.8rem; }
-.modal-content input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 2px solid #0077b6;
-  border-radius: 8px;
-}
-
-.modal-content button {
-  padding: 0.6rem;
-  font-size: 1rem;
-  background-color: #00a8e8;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.modal-content button:hover { background-color: #0077b6; }
-
-.close {
-  color: #333;
-  float: right;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover { color: #0077b6; }
-
-/* 🎉 Modal Pop-in Animation */
-@keyframes modalPop {
-  0% { transform: scale(0.7); opacity: 0; }
-  60% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); }
+  .subject-btn { width: 48%; text-align: center; margin-bottom: 10px; }
 }
