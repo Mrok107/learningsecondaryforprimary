@@ -50,14 +50,77 @@ nav a:hover, nav a:focus { color: #ffdd00; text-decoration: underline; }
 
 .card h2 { color: #0077b6; margin-bottom: 0.5rem; }
 .card p { margin-bottom: 1rem; }
-.card ul { margin-left: 1.2rem; list-style-type: "✨ "; }
 
-/* 🦶 Footer */
+/* Subject Buttons */
+.subject-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.subject-btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #00a8e8;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.subject-btn:hover { background-color: #0077b6; }
+
+/* Footer */
 footer { background: #0077b6; color: white; text-align: center; padding: 1rem; font-size: 0.95rem; border-top: 4px solid #00a8e8; }
 
-/* 📱 Responsive */
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fef6e4;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.modal-content h2 { margin-bottom: 1rem; color: #0077b6; }
+.modal-content .close {
+  position: absolute;
+  top: 0.5rem; right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Auth Buttons */
+.auth-buttons button {
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #ffdd00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.auth-buttons button:hover { background-color: #e6c200; }
+
+/* Responsive */
 @media (max-width: 600px) {
   header h1 { font-size: 1.8rem; }
   nav li { display: block; margin: 0.5rem 0; }
   .card { padding: 1.2rem; }
+  .subject-buttons { flex-direction: column; }
+  .subject-btn { width: 100%; text-align: center; }
 }
