@@ -43,6 +43,10 @@ function submitSignUp(event) {
     return;
   }
 
+  // Show personalized greeting on homepage
+  const greetingDiv = document.getElementById('user-greeting');
+  greetingDiv.innerText = `Welcome, ${name} (${year})!`;
+
   alert(`Sign Up Successful! Welcome, ${name} (${year})!`);
   closeModal('signup-modal');
 }
