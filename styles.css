@@ -81,3 +81,35 @@ footer { background: #0077b6; color: white; text-align: center; padding: 1rem; f
   .card { padding: 1.2rem; }
   .quiz button, .show-quiz-btn { width: 100%; }
 }
+
+/* 🟢 Auth Buttons (Sign Up / Log In) */
+.auth-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.auth-buttons button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ffdd00;
+  color: #0077b6;
+  border: 2px solid #0077b6;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.auth-buttons button:hover {
+  background-color: #ffc107;
+  transform: translateY(-2px);
+}
+
+/* 📱 Responsive tweak for Auth Buttons */
+@media (max-width: 600px) {
+  .auth-buttons button { width: 48%; }
+}
+
