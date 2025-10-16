@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Quiz | Learn Smart!</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>📚 English Quiz</h1>
+      <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>Test your English skills!</h2>
+
+    <div class="quiz">
+      <p>1. Which of these is a complete sentence?</p>
+      <button onclick="checkAnswer(this,'wrong')">Jumped over the fence.</button>
+      <button onclick="checkAnswer(this,'correct')">The dog jumps over the fence.</button>
+      <button onclick="checkAnswer(this,'wrong')">Over the fence.</button>
+
+      <p>2. What does “curious” mean?</p>
+      <button onclick="checkAnswer(this,'correct')">Likes to ask questions</button>
+      <button onclick="checkAnswer(this,'wrong')">Always sleepy</button>
+      <button onclick="checkAnswer(this,'wrong')">Very tall</button>
+
+      <p>3. Every sentence needs…</p>
+      <button onclick="checkAnswer(this,'correct')">A subject and a verb</button>
+      <button onclick="checkAnswer(this,'wrong')">A number and a color</button>
+      <button onclick="checkAnswer(this,'wrong')">A dog and a cat</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Learn Smart | Made for young learners 🌈</p>
+    </div>
+  </footer>
+</body>
+</html>
