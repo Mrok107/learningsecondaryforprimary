@@ -6,174 +6,6 @@
   <meta name="description" content="Fun learning website for primary students who want to learn secondary school subjects." />
   <title>Learn Smart!</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* 🌈 Reset & Base Styles */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: "Poppins", "Comic Sans MS", sans-serif;
-      background-color: #fef6e4;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .container { width: 90%; max-width: 900px; margin: 0 auto; }
-
-    /* 🌟 Header */
-    header {
-      background: linear-gradient(135deg, #00a8e8, #0077b6);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      border-bottom: 4px solid #ffdd00;
-    }
-
-    header h1 { font-size: 2.4rem; margin-bottom: 0.4rem; }
-    header p { font-size: 1.1rem; margin-bottom: 1.5rem; }
-
-    /* 🧭 Navigation */
-    nav ul { list-style: none; padding: 0; }
-    nav li { display: inline-block; margin: 0 1rem; }
-    nav a { color: white; text-decoration: none; font-weight: bold; transition: color 0.2s; }
-    nav a:hover, nav a:focus { color: #ffdd00; text-decoration: underline; }
-
-    /* 📘 Cards */
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .card h2 { color: #0077b6; margin-bottom: 0.5rem; }
-    .card p { margin-bottom: 1rem; }
-    .card ul { margin-left: 1.2rem; list-style-type: "✨ "; }
-
-    /* 📝 Quizzes */
-    .quiz { margin-top: 1rem; margin-bottom: 2rem; }
-    .quiz p { margin: 0.5rem 0; font-weight: 500; }
-    .quiz button {
-      margin: 0.3rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 8px;
-      border: 2px solid #0077b6;
-      background-color: #fef6e4;
-      transition: background-color 0.2s, transform 0.2s;
-    }
-    .quiz button:hover:not(:disabled) { background-color: #00a8e8; color: white; transform: translateY(-2px); }
-    .quiz button:disabled { cursor: default; opacity: 0.7; }
-
-    /* Take Quiz button */
-    .show-quiz-btn {
-      margin: 1rem 0;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      background-color: #00a8e8;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .show-quiz-btn:hover { background-color: #0077b6; }
-
-    /* 🦶 Footer */
-    footer { background: #0077b6; color: white; text-align: center; padding: 1rem; font-size: 0.95rem; border-top: 4px solid #00a8e8; }
-
-    /* 📱 Responsive */
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      nav li { display: block; margin: 0.5rem 0; }
-      .card { padding: 1.2rem; }
-      .quiz button, .show-quiz-btn { width: 100%; }
-    }
-
-    /* 🟢 Auth Buttons (Sign Up / Log In) */
-    .auth-buttons {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .auth-buttons button {
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      background-color: #ffdd00;
-      color: #0077b6;
-      border: 2px solid #0077b6;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.2s, transform 0.2s;
-    }
-
-    .auth-buttons button:hover {
-      background-color: #ffc107;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 600px) {
-      .auth-buttons button { width: 48%; }
-    }
-
-    /* 🌈 Modals */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.6);
-      padding-top: 60px;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 5% auto;
-      padding: 2rem;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-      text-align: center;
-    }
-
-    .modal-content h2 { margin-bottom: 1rem; color: #0077b6; }
-
-    .modal-content form { display: flex; flex-direction: column; gap: 0.8rem; }
-    .modal-content input {
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 2px solid #0077b6;
-      border-radius: 8px;
-    }
-    .modal-content button {
-      padding: 0.6rem;
-      font-size: 1rem;
-      background-color: #00a8e8;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .modal-content button:hover { background-color: #0077b6; }
-
-    .close {
-      color: #333;
-      float: right;
-      font-size: 1.5rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .close:hover { color: #0077b6; }
-  </style>
 </head>
 <body>
   <header>
@@ -199,7 +31,7 @@
   </header>
 
   <main class="container">
-    <!-- Your existing sections (Math, Science, English, History) go here... -->
+    <!-- Your existing sections (Math, Science, English, History) go here -->
   </main>
 
   <footer>
@@ -245,7 +77,9 @@
     </div>
   </div>
 
+  <!-- JavaScript for quizzes and modals -->
   <script>
+    // Quiz Functions
     function checkAnswer(button, type) {
       if (type === 'correct') {
         button.style.backgroundColor = '#4CAF50';
@@ -263,7 +97,7 @@
       quiz.style.display = quiz.style.display === 'none' ? 'block' : 'none';
     }
 
-    // Modals
+    // Modal Functions
     function openSignUp() { document.getElementById('signup-modal').style.display = 'block'; }
     function openLogin() { document.getElementById('login-modal').style.display = 'block'; }
     function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
@@ -282,11 +116,12 @@
       closeModal('login-modal');
     }
 
+    // Close modal if clicking outside
     window.onclick = function(event) {
       const signup = document.getElementById('signup-modal');
       const login = document.getElementById('login-modal');
-      if (event.target == signup) signup.style.display = "none";
-      if (event.target == login) login.style.display = "none";
+      if (event.target === signup) signup.style.display = 'none';
+      if (event.target === login) login.style.display = 'none';
     }
   </script>
 </body>
