@@ -1,52 +1,53 @@
-/* General Reset */
+/* 🌈 Reset & Base Styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Base */
 body {
   font-family: "Poppins", "Comic Sans MS", sans-serif;
-  line-height: 1.6;
-  background: #fef6e4;
+  background-color: #fef6e4;
   color: #333;
+  line-height: 1.6;
 }
 
-/* Containers */
+/* 🎨 Layout Containers */
 .container {
   width: 90%;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* Header */
+/* 🌟 Header */
 header {
   background: linear-gradient(135deg, #00a8e8, #0077b6);
   color: white;
   text-align: center;
   padding: 2rem 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #ffdd00;
 }
 
 header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.3rem;
+  font-size: 2.4rem;
+  margin-bottom: 0.4rem;
 }
 
 header p {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Navigation */
+/* 🧭 Navigation */
 nav ul {
   list-style: none;
+  padding: 0;
 }
 
 nav li {
   display: inline-block;
-  margin: 0 0.8rem;
+  margin: 0 1rem;
 }
 
 nav a {
@@ -54,31 +55,34 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 nav a:hover,
 nav a:focus {
   color: #ffdd00;
+  text-decoration: underline;
 }
 
-/* Sections (Cards) */
+/* 📘 Cards / Sections */
 .card {
-  background: #fff;
-  margin: 2rem 0;
-  padding: 1.5rem;
+  background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .card h2 {
   color: #0077b6;
   margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .card p {
@@ -86,20 +90,21 @@ nav a:focus {
 }
 
 .card ul {
-  margin-left: 1rem;
+  margin-left: 1.2rem;
+  list-style-type: "✨ ";
 }
 
-/* Footer */
+/* 🦶 Footer */
 footer {
   background: #0077b6;
   color: white;
   text-align: center;
   padding: 1rem;
-  font-size: 0.9rem;
-  margin-top: 2rem;
+  font-size: 0.95rem;
+  border-top: 4px solid #00a8e8;
 }
 
-/* Responsive */
+/* 📱 Responsive Design */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1.8rem;
@@ -108,5 +113,9 @@ footer {
   nav li {
     display: block;
     margin: 0.5rem 0;
+  }
+
+  .card {
+    padding: 1.2rem;
   }
 }
