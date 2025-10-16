@@ -1,22 +1,5 @@
 /* =============================
-   📝 Quiz Answer Checker
-============================= */
-function checkAnswer(button, type) {
-  if (type === 'correct') {
-    button.style.backgroundColor = '#4CAF50';
-    button.innerText = '✅ Correct!';
-  } else {
-    button.style.backgroundColor = '#f44336';
-    button.innerText = '❌ Try again';
-  }
-
-  // Disable all buttons in the same question
-  const siblings = button.parentNode.querySelectorAll('button');
-  siblings.forEach(btn => btn.disabled = true);
-}
-
-/* =============================
-   🌈 Modals for Sign Up / Log In
+   🌟 Modals for Sign Up / Log In
 ============================= */
 function openSignUp() {
   document.getElementById('signup-modal').style.display = 'block';
@@ -43,7 +26,7 @@ function submitSignUp(event) {
     return;
   }
 
-  // Show personalized greeting on homepage
+  // Show greeting on homepage
   const greetingDiv = document.getElementById('user-greeting');
   greetingDiv.innerText = `Welcome, ${name} (${year})!`;
 
@@ -53,9 +36,10 @@ function submitSignUp(event) {
 
 function submitLogin(event) {
   event.preventDefault();
-  const name = document.getElementById('login-email').value.split('@')[0]; // Use email prefix as username
 
-  // Hide the Sign Up / Log In buttons
+  const name = document.getElementById('login-name').value;
+
+  // Hide Sign Up / Log In buttons
   const authButtons = document.querySelector('.auth-buttons');
   authButtons.style.display = 'none';
 
@@ -63,8 +47,8 @@ function submitLogin(event) {
   const greetingDiv = document.getElementById('user-greeting');
   greetingDiv.innerText = `Hello, ${name}!`;
 
-  alert('Logged In Successfully! Welcome back!');
   closeModal('login-modal');
+  alert(`Logged In Successfully! Welcome back, ${name}!`);
 }
 
 /* =============================
