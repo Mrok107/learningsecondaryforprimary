@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Quiz | Learn Smart!</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>🧮 Math Quiz</h1>
+      <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>Test your Math skills!</h2>
+
+    <div class="quiz">
+      <p>1. Solve for x: x + 4 = 9</p>
+      <button onclick="checkAnswer(this,'correct')">5</button>
+      <button onclick="checkAnswer(this,'wrong')">13</button>
+      <button onclick="checkAnswer(this,'wrong')">4</button>
+
+      <p>2. Which fraction is bigger?</p>
+      <button onclick="checkAnswer(this,'correct')">1/2</button>
+      <button onclick="checkAnswer(this,'wrong')">1/4</button>
+
+      <p>3. How many sides does a hexagon have?</p>
+      <button onclick="checkAnswer(this,'correct')">6</button>
+      <button onclick="checkAnswer(this,'wrong')">5</button>
+      <button onclick="checkAnswer(this,'wrong')">8</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Learn Smart | Made for young learners 🌈</p>
+    </div>
+  </footer>
+</body>
+</html>
