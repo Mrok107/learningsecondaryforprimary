@@ -1,6 +1,4 @@
-/* =============================
-   🌟 Modals for Sign Up / Log In
-============================= */
+/// ===== Modals =====
 function openSignUp() {
   document.getElementById('signup-modal').style.display = 'block';
 }
@@ -13,57 +11,7 @@ function closeModal(id) {
   document.getElementById(id).style.display = 'none';
 }
 
-/* =============================
-   ✨ Sign Up & Log In Functions
-============================= */
-function submitSignUp(event) {
-  event.preventDefault();
-  const name = document.getElementById('signup-name').value;
-  const year = document.getElementById('signup-year').value;
-
-  if (!year) {
-    alert('Please select your year of school!');
-    return;
-  }
-
-  // Store in localStorage
-  localStorage.setItem('userName', name);
-  localStorage.setItem('userYear', year);
-
-  // Update greeting
-  updateGreeting();
-
-  alert(`Sign Up Successful! Welcome, ${name} (${year})!`);
-  closeModal('signup-modal');
-}
-
-function submitLogin(event) {
-  event.preventDefault();
-  const name = document.getElementById('login-name').value;
-
-  // Store in localStorage
-  localStorage.setItem('userName', name);
-
-  // If year exists from sign-up, keep it
-  if (!localStorage.getItem('userYear')) {
-    const year = prompt('Enter your year of school:');
-    localStorage.setItem('userYear', year);
-  }
-
-  // Hide Sign Up / Log In buttons
-  const authButtons = document.querySelector('.auth-buttons');
-  authButtons.style.display = 'none';
-
-  // Update greeting
-  updateGreeting();
-
-  closeModal('login-modal');
-  alert(`Logged In Successfully! Welcome back, ${name}!`);
-}
-
-/* =============================
-   🌟 Update Greeting
-============================= */
+// ===== Update Greeting =====
 function updateGreeting() {
   const name = localStorage.getItem('userName');
   const year = localStorage.getItem('userYear');
@@ -77,25 +25,55 @@ function updateGreeting() {
 
   // Hide auth buttons if logged in
   if (name) {
-    const authButtons = document.querySelector('.auth-buttons');
-    authButtons.style.display = 'none';
+    document.querySelector('.auth-buttons').style.display = 'none';
   }
 }
 
-/* =============================
-   🌟 Close modal if clicking outside content
-============================= */
+// ===== Sign Up =====
+document.getElementById('signup-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('signup-name').value;
+  const year = document.getElementById('signup-year').value;
+
+  if (!year) {
+    alert('Please select your year!');
+    return;
+  }
+
+  localStorage.setItem('userName', name);
+  localStorage.setItem('userYear', year);
+
+  updateGreeting();
+  closeModal('signup-modal');
+  alert(`Sign Up Successful! Welcome, ${name} (${year})!`);
+});
+
+// ===== Log In =====
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('login-name').value;
+
+  localStorage.setItem('userName', name);
+
+  if (!localStorage.getItem('userYear')) {
+    const year = prompt('Enter your year of school:');
+    if (year) localStorage.setItem('userYear', year);
+  }
+
+  updateGreeting();
+  closeModal('login-modal');
+  alert(`Logged In Successfully! Welcome back, ${name}!`);
+});
+
+// ===== Close modals when clicking outside =====
 window.onclick = function(event) {
   const signupModal = document.getElementById('signup-modal');
   const loginModal = document.getElementById('login-modal');
-
   if (event.target === signupModal) signupModal.style.display = 'none';
   if (event.target === loginModal) loginModal.style.display = 'none';
 }
 
-/* =============================
-   🌟 Run on Page Load
-============================= */
+// ===== On Page Load =====
 window.onload = function() {
   updateGreeting();
 }
