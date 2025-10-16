@@ -94,6 +94,43 @@ nav a:focus {
   list-style-type: "✨ ";
 }
 
+/* 📝 Quizzes */
+.quiz {
+  margin-bottom: 2rem;
+}
+
+.quiz h3 {
+  color: #ff7f50;
+  margin-bottom: 0.5rem;
+}
+
+.quiz p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.quiz button {
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #0077b6;
+  background-color: #fef6e4;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.quiz button:hover:not(:disabled) {
+  background-color: #00a8e8;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.quiz button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
 /* 🦶 Footer */
 footer {
   background: #0077b6;
@@ -117,5 +154,9 @@ footer {
 
   .card {
     padding: 1.2rem;
+  }
+
+  .quiz button {
+    width: 100%;
   }
 }
