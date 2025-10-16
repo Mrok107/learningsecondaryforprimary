@@ -82,7 +82,7 @@ footer { background: #0077b6; color: white; text-align: center; padding: 1rem; f
   .quiz button, .show-quiz-btn { width: 100%; }
 }
 
-/* 🟢 Auth Buttons (Sign Up / Log In) */
+/* 🟢 Auth Buttons */
 .auth-buttons {
   margin-top: 1rem;
   display: flex;
