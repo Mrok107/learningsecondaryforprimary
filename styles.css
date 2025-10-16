@@ -12,6 +12,7 @@ body {
 
 /* 🌟 Header */
 header {
+  position: relative; /* updated for top-right greeting */
   background: linear-gradient(135deg, #00a8e8, #0077b6);
   color: white;
   text-align: center;
@@ -41,7 +42,7 @@ nav a:hover, nav a:focus { color: #ffdd00; text-decoration: underline; }
 .card p { margin-bottom: 1rem; }
 .card ul { margin-left: 1.2rem; list-style-type: "✨ "; }
 
-/* 📝 Quiz Buttons */
+/* 📝 Quizzes */
 .quiz { margin-top: 1rem; margin-bottom: 2rem; }
 .quiz p { margin: 0.5rem 0; font-weight: 500; }
 .quiz button {
@@ -54,122 +55,34 @@ nav a:hover, nav a:focus { color: #ffdd00; text-decoration: underline; }
   background-color: #fef6e4;
   transition: background-color 0.2s, transform 0.2s;
 }
-
-.quiz button:hover:not(:disabled) {
-  background-color: #00a8e8;
-  color: white;
-  transform: translateY(-2px);
-}
-
+.quiz button:hover:not(:disabled) { background-color: #00a8e8; color: white; transform: translateY(-2px); }
 .quiz button:disabled { cursor: default; opacity: 0.7; }
 
-/* 🟢 Auth Buttons */
-.auth-buttons { margin-top: 1rem; }
-.auth-buttons button {
-  margin: 0.3rem;
+/* Take Quiz button */
+.show-quiz-btn {
+  margin: 1rem 0;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: #ffdd00;
-  font-weight: bold;
-  transition: background-color 0.2s, transform 0.2s;
-}
-.auth-buttons button:hover { background-color: #ffc107; transform: translateY(-2px); }
-
-/* 🌟 Subject Buttons */
-.subject-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin: 1.5rem 0;
-}
-
-.subject-btn {
-  padding: 0.8rem 1.5rem;
-  font-size: 1.2rem;
-  background: linear-gradient(135deg, #00a8e8, #0077b6);
-  color: white;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.subject-btn:hover {
-  background: linear-gradient(135deg, #0077b6, #00a8e8);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-
-/* 🏠 Modals */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-  background-color: #fef6e4;
-  margin: 10% auto;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.modal-content h2 { margin-bottom: 1rem; color: #0077b6; }
-.modal-content input {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 0.5rem 0 1rem 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.modal-content button {
-  width: 100%;
-  padding: 0.6rem;
   background-color: #00a8e8;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
-
-.modal-content button:hover { background-color: #0077b6; }
-
-/* Close Button */
-.modal .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #0077b6;
-}
+.show-quiz-btn:hover { background-color: #0077b6; }
 
 /* 🦶 Footer */
-footer {
-  background: #0077b6;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.95rem;
-  border-top: 4px solid #00a8e8;
+footer { background: #0077b6; color: white; text-align: center; padding: 1rem; font-size: 0.95rem; border-top: 4px solid #00a8e8; }
+
+/* User greeting at top-right */
+.user-greeting {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-weight: bold;
+  color: #ffdd00;
+  font-size: 1rem;
 }
 
 /* 📱 Responsive */
@@ -177,5 +90,5 @@ footer {
   header h1 { font-size: 1.8rem; }
   nav li { display: block; margin: 0.5rem 0; }
   .card { padding: 1.2rem; }
-  .quiz button, .subject-btn, .auth-buttons button { width: 100%; margin-bottom: 10px; }
+  .quiz button, .show-quiz-btn { width: 100%; }
 }
