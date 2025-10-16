@@ -1,11 +1,74 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  text-align: center;
-  padding: 20px;
+/* Base Styles */
+* {
+  box-sizing: border-box;
 }
 
-h1 {
-  color: #004080;
+body {
+  font-family: "Comic Sans MS", "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fef6e4;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #00a8e8;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0.2rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
+/* Sections */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+section {
+  background: #fff8dc;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  color: #0066cc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #00a8e8;
+  color: white;
+  padding: 1rem;
+  font-size: 0.9rem;
 }
