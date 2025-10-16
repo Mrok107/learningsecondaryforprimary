@@ -36,13 +36,11 @@
 
   <!-- Main Content -->
   <main class="container">
-    <!-- About Section -->
     <section id="about" class="card">
       <h2>Welcome to Learn Smart!</h2>
       <p>Explore fun and interactive quizzes to learn Math, Science, English, and History!</p>
     </section>
 
-    <!-- Subjects Section -->
     <section id="subjects" class="card">
       <h2>📚 Subjects</h2>
       <div class="subject-buttons">
@@ -98,8 +96,12 @@
       <span class="close" onclick="closeModal('login-modal')">&times;</span>
       <h2>Log In 🔑</h2>
       <form onsubmit="submitLogin(event)">
+        <label for="login-name">Name:</label>
+        <input type="text" id="login-name" required placeholder="Your name">
+
         <label for="login-email">Email:</label>
         <input type="email" id="login-email" required placeholder="example@email.com">
+
         <label for="login-password">Password:</label>
         <input type="password" id="login-password" required placeholder="Enter password">
         <button type="submit">Log In</button>
@@ -108,3 +110,4 @@
   </div>
 </body>
 </html>
+
