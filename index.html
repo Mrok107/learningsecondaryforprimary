@@ -6,24 +6,6 @@
   <meta name="description" content="Fun learning website for primary students who want to learn secondary school subjects." />
   <title>Learn Smart!</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Quiz Styles */
-    .quiz {
-      margin-bottom: 2rem;
-    }
-    .quiz button {
-      margin: 0.3rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .quiz button:disabled {
-      cursor: default;
-      opacity: 0.8;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -43,6 +25,7 @@
   </header>
 
   <main class="container">
+    <!-- Math Section -->
     <section id="math" class="card">
       <h2>🧮 Math</h2>
       <p>Learn about fractions, algebra, and geometry — the building blocks of secondary math!</p>
@@ -52,6 +35,7 @@
       </ul>
     </section>
 
+    <!-- Science Section -->
     <section id="science" class="card">
       <h2>🔬 Science</h2>
       <p>Explore chemistry, physics, and biology — discover how the world works!</p>
@@ -61,6 +45,7 @@
       </ul>
     </section>
 
+    <!-- English Section -->
     <section id="english" class="card">
       <h2>📚 English</h2>
       <p>Learn how to write essays, read stories, and use new vocabulary.</p>
@@ -70,6 +55,7 @@
       </ul>
     </section>
 
+    <!-- History Section -->
     <section id="history" class="card">
       <h2>🏺 History</h2>
       <p>Discover amazing stories from the past — ancient Egypt, explorers, and inventors!</p>
@@ -79,7 +65,7 @@
       </ul>
     </section>
 
-    <!-- Quizzes Section -->
+    <!-- Fun Quizzes Section -->
     <section id="quizzes" class="card">
       <h2>📝 Fun Quizzes!</h2>
       <p>Test what you learned in Math, Science, English, and History!</p>
@@ -170,10 +156,10 @@
   <script>
     function checkAnswer(button, type) {
       if (type === 'correct') {
-        button.style.backgroundColor = '#4CAF50'; // green
+        button.style.backgroundColor = '#4CAF50';
         button.innerText = '✅ Correct!';
       } else {
-        button.style.backgroundColor = '#f44336'; // red
+        button.style.backgroundColor = '#f44336';
         button.innerText = '❌ Try again';
       }
       const siblings = button.parentNode.querySelectorAll('button');
