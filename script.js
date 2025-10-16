@@ -43,7 +43,7 @@ function submitSignUp(event) {
     return;
   }
 
-  // Show personalized greeting
+  // Show personalized greeting on homepage
   const greetingDiv = document.getElementById('user-greeting');
   greetingDiv.innerText = `Welcome, ${name} (${year})!`;
 
@@ -53,14 +53,15 @@ function submitSignUp(event) {
 
 function submitLogin(event) {
   event.preventDefault();
+  const name = document.getElementById('login-email').value.split('@')[0]; // Use email prefix as username
 
   // Hide the Sign Up / Log In buttons
   const authButtons = document.querySelector('.auth-buttons');
   authButtons.style.display = 'none';
 
-  // Show a generic greeting after login
+  // Show greeting at top-right
   const greetingDiv = document.getElementById('user-greeting');
-  greetingDiv.innerText = "Welcome back!";
+  greetingDiv.innerText = `Hello, ${name}!`;
 
   alert('Logged In Successfully! Welcome back!');
   closeModal('login-modal');
