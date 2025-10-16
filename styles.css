@@ -12,7 +12,7 @@ body {
   line-height: 1.6;
 }
 
-/* 🎨 Layout Containers */
+/* 🎨 Container */
 .container {
   width: 90%;
   max-width: 900px;
@@ -25,7 +25,6 @@ header {
   color: white;
   text-align: center;
   padding: 2rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-bottom: 4px solid #ffdd00;
 }
 
@@ -54,7 +53,6 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
   transition: color 0.2s ease;
 }
 
@@ -64,25 +62,18 @@ nav a:focus {
   text-decoration: underline;
 }
 
-/* 📘 Cards / Sections */
+/* 📘 Cards */
 .card {
   background: #ffffff;
   border-radius: 16px;
   padding: 1.5rem;
   margin: 2rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .card h2 {
   color: #0077b6;
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
 }
 
 .card p {
@@ -141,21 +132,18 @@ footer {
   border-top: 4px solid #00a8e8;
 }
 
-/* 📱 Responsive Design */
+/* 📱 Responsive */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1.8rem;
   }
-
   nav li {
     display: block;
     margin: 0.5rem 0;
   }
-
   .card {
     padding: 1.2rem;
   }
-
   .quiz button {
     width: 100%;
   }
