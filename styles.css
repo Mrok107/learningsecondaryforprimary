@@ -38,24 +38,28 @@ header p {
   margin-bottom: 1.5rem;
 }
 
-.user-greeting {
-  position: absolute;
-  top: 1rem;
-  right: 5rem;
-  font-weight: bold;
-}
-
-#logout-btn {
+/* User area with greeting + logout button */
+.user-area {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  text-align: right;
+}
+
+.user-greeting {
+  font-weight: bold;
+  display: block;
+}
+
+#logout-btn {
+  display: none; /* hidden by default */
+  margin-top: 0.4rem; /* space below the name */
   padding: 0.4rem 0.8rem;
   background-color: #ffdd00;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  display: none;
   transition: background-color 0.2s;
 }
 
@@ -303,14 +307,16 @@ footer {
     width: 100%;
   }
 
-  .user-greeting {
+  .user-area {
     position: static;
-    margin-top: 0.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
   }
 
   #logout-btn {
-    position: static;
-    margin-top: 0.5rem;
+    display: block;
+    margin-top: 0.3rem;
+    width: 100%;
   }
 }
 
@@ -342,30 +348,3 @@ footer {
   background-color: #0077b6;
   transform: translateY(-2px);
 }
-.user-area {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  text-align: right;
-}
-
-.user-greeting {
-  font-weight: bold;
-}
-
-#logout-btn {
-  margin-top: 0.4rem; /* space below the name */
-  padding: 0.4rem 0.8rem;
-  background-color: #ffdd00;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  display: none; /* hidden by default */
-  transition: background-color 0.2s;
-}
-
-#logout-btn:hover {
-  background-color: #fbc02d;
-}
-
