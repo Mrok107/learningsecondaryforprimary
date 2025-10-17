@@ -15,7 +15,7 @@ function openModal(id) {
   document.getElementById(id).style.display = "block";
 }
 
-// === Welcome Quiz Logic ===
+// === Quiz Logic ===
 function nextQuestion(answer) {
   let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
   quizData.push(answer);
@@ -23,11 +23,8 @@ function nextQuestion(answer) {
 
   const current = document.querySelector('.quiz-question.active');
   current.classList.remove('active');
-
   const next = current.nextElementSibling;
-  if (next) {
-    next.classList.add('active');
-  }
+  if (next) next.classList.add('active');
 }
 
 // === Login / Signup Logic ===
@@ -38,11 +35,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const greeting = document.getElementById("user-greeting");
   const logoutBtn = document.getElementById("logout-btn");
 
-  // Sign Up
+  function showUserArea(user) {
+    if (user) {
+      greeting.innerText = `👋 Hello, ${user.name} (${user.year})`;
+      logoutBtn.style.display = "inline-block";
+      authButtons.style.display = "none";
+    } else {
+      greeting.innerText = "";
+      logoutBtn.style.display = "none";
+      authButtons.style.display = "block";
+    }
+  }
+
+  // On page load, show logged-in user if exists
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  showUserArea(loggedInUser);
+
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
       e.preventDefault();
-
       const name = document.getElementById("signup-name").value;
       const year = document.getElementById("signup-year").value;
       const email = document.getElementById("signup-email").value;
@@ -50,85 +61,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
       localStorage.setItem("user", JSON.stringify({ name, year, email, password }));
       closeModal("signup-modal");
-
-      // Show welcome quiz after sign-up
-      openModal('welcome-quiz-modal');
+      openModal("welcome-quiz-modal");
     });
   }
 
-  // Log In
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-
       const email = document.getElementById("login-email").value;
       const password = document.getElementById("login-password").value;
+
       const savedUser = JSON.parse(localStorage.getItem("user"));
 
       if (savedUser && savedUser.email === email && savedUser.password === password) {
         localStorage.setItem("loggedInUser", JSON.stringify(savedUser));
         closeModal("login-modal");
-        showUserGreeting();
+        showUserArea(savedUser);
       } else {
         alert("❌ Invalid login details.");
       }
     });
   }
 
-  // Show greeting if already logged in
-  showUserGreeting();
+  // Logout button
+  logoutBtn.addEventListener("click", logout);
 
-  function showUserGreeting() {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser) {
-      greeting.innerText = `👋 Hello, ${loggedInUser.name} (${loggedInUser.year})`;
-      authButtons.style.display = "none";
-      logoutBtn.style.display = "inline-block";
-    }
-  }
-
-  // Logout
-  window.logout = function() {
+  function logout() {
     localStorage.removeItem("loggedInUser");
-    greeting.innerText = "";
-    authButtons.style.display = "block";
-    logoutBtn.style.display = "none";
-  };
-
-  // Close modals when clicking outside
-  window.onclick = function(event) {
-    const signup = document.getElementById("signup-modal");
-    const login = document.getElementById("login-modal");
-    const quiz = document.getElementById("welcome-quiz-modal");
-    if (event.target === signup) signup.style.display = "none";
-    if (event.target === login) login.style.display = "none";
-    if (event.target === quiz) quiz.style.display = "none";
-  };
-});
-function logout() {
-  localStorage.removeItem('loggedInUser');
-  const greeting = document.getElementById('user-greeting');
-  const logoutBtn = document.getElementById('logout-btn');
-  const authButtons = document.querySelector('.auth-buttons');
-
-  if (greeting) greeting.innerText = '';
-  if (logoutBtn) logoutBtn.style.display = 'none';
-  if (authButtons) authButtons.style.display = 'block';
-}
-
-// Show greeting and logout button on login
-function showUserGreeting() {
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-  const greeting = document.getElementById("user-greeting");
-  const logoutBtn = document.getElementById("logout-btn");
-  const authButtons = document.querySelector(".auth-buttons");
-
-  if (loggedInUser && greeting) {
-    greeting.innerText = `👋 Hello, ${loggedInUser.name} (${loggedInUser.year})`;
-    if (logoutBtn) logoutBtn.style.display = 'block';
-    if (authButtons) authButtons.style.display = 'none';
+    showUserArea(null);
   }
-}
+});
 
-// Call showUserGreeting on page load
-document.addEventListener("DOMContentLoaded", showUserGreeting);
+// === Close modal when clicking outside ===
+window.onclick = function (event) {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    if (event.target === modal) modal.style.display = "none";
+  });
+};
