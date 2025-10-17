@@ -11,20 +11,10 @@ function closeModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
-function openModal(id) {
-  document.getElementById(id).style.display = "block";
-}
-
-// === Quiz Logic ===
-function nextQuestion(answer) {
-  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
-  quizData.push(answer);
-  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
-
-  const current = document.querySelector('.quiz-question.active');
-  current.classList.remove('active');
-  const next = current.nextElementSibling;
-  if (next) next.classList.add('active');
+// === Logout Function ===
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  location.reload();
 }
 
 // === Login / Signup Logic ===
@@ -35,21 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const greeting = document.getElementById("user-greeting");
   const logoutBtn = document.getElementById("logout-btn");
 
-  function showUserArea(user) {
-    if (user) {
-      greeting.innerText = `👋 Hello, ${user.name} (${user.year})`;
-      logoutBtn.style.display = "inline-block";
+  function showUserGreeting() {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser && greeting) {
+      greeting.innerText = `👋 Hello, ${loggedInUser.name} (${loggedInUser.year})`;
       authButtons.style.display = "none";
-    } else {
-      greeting.innerText = "";
-      logoutBtn.style.display = "none";
-      authButtons.style.display = "block";
+      logoutBtn.style.display = "block";
     }
   }
-
-  // On page load, show logged-in user if exists
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-  showUserArea(loggedInUser);
 
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
@@ -60,8 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.getElementById("signup-password").value;
 
       localStorage.setItem("user", JSON.stringify({ name, year, email, password }));
+      alert("✅ Sign-up successful! You can now log in.");
       closeModal("signup-modal");
-      openModal("welcome-quiz-modal");
+
+      // Open welcome quiz
+      document.getElementById("welcome-quiz-modal").style.display = "block";
     });
   }
 
@@ -74,28 +60,54 @@ document.addEventListener("DOMContentLoaded", () => {
       const savedUser = JSON.parse(localStorage.getItem("user"));
 
       if (savedUser && savedUser.email === email && savedUser.password === password) {
-        localStorage.setItem("loggedInUser", JSON.stringify(savedUser));
         closeModal("login-modal");
-        showUserArea(savedUser);
+        localStorage.setItem("loggedInUser", JSON.stringify(savedUser));
+        showUserGreeting();
       } else {
         alert("❌ Invalid login details.");
       }
     });
   }
 
-  // Logout button
-  logoutBtn.addEventListener("click", logout);
-
-  function logout() {
-    localStorage.removeItem("loggedInUser");
-    showUserArea(null);
-  }
+  showUserGreeting();
 });
 
 // === Close modal when clicking outside ===
 window.onclick = function (event) {
-  const modals = document.querySelectorAll('.modal');
-  modals.forEach(modal => {
-    if (event.target === modal) modal.style.display = "none";
-  });
+  const signup = document.getElementById("signup-modal");
+  const login = document.getElementById("login-modal");
+  const quiz = document.getElementById("welcome-quiz-modal");
+  if (event.target === signup) signup.style.display = "none";
+  if (event.target === login) login.style.display = "none";
+  if (event.target === quiz) quiz.style.display = "none";
 };
+
+// === Welcome Quiz Logic ===
+let knowsGCSE = true;
+
+function nextQuestion(answer, type = "") {
+  // Save answer in localStorage
+  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
+  quizData.push(answer);
+  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
+
+  if (type === "gcse") {
+    knowsGCSE = answer === "Yes";
+  }
+
+  const current = document.querySelector('.quiz-question.active');
+  current.classList.remove('active');
+
+  let next;
+  if (!knowsGCSE && current.nextElementSibling.id !== "gcse-explanation") {
+    next = document.getElementById("gcse-explanation");
+  } else if (current.nextElementSibling) {
+    next = current.nextElementSibling;
+  } else {
+    next = document.getElementById("finish-quiz");
+  }
+
+  if (next) {
+    next.classList.add('active');
+  }
+}
