@@ -36,7 +36,7 @@
 
   <!-- Main -->
   <main class="container">
-    <!-- 🌟 Updated About Section -->
+    <!-- 🌟 About Section -->
     <section id="about" class="card">
       <h2>🌟 Welcome to Learn Smart!</h2>
       <p>
@@ -120,5 +120,57 @@
       </form>
     </div>
   </div>
+
+  <!-- Welcome Quiz Modal -->
+  <div id="welcome-quiz-modal" class="modal">
+    <div class="modal-content quiz-modal">
+      <span class="close" onclick="closeModal('welcome-quiz-modal')">&times;</span>
+      <h2>🎉 Welcome to Learn Smart!</h2>
+      <p>Let's get to know you a bit! Answer a few quick questions:</p>
+
+      <div id="quiz-questions">
+        <!-- Question 1 -->
+        <div class="quiz-question active">
+          <p>Do you know what GCSEs are?</p>
+          <button onclick="nextQuestion('Yes')">Yes</button>
+          <button onclick="nextQuestion('No')">No</button>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question">
+          <p>Which subjects do you like? (Choose any)</p>
+          <button onclick="nextQuestion('Math')">Math</button>
+          <button onclick="nextQuestion('Science')">Science</button>
+          <button onclick="nextQuestion('English')">English</button>
+          <button onclick="nextQuestion('History')">History</button>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question">
+          <p>Which subjects do you dislike?</p>
+          <button onclick="nextQuestion('Math')">Math</button>
+          <button onclick="nextQuestion('Science')">Science</button>
+          <button onclick="nextQuestion('English')">English</button>
+          <button onclick="nextQuestion('History')">History</button>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question">
+          <p>Which subjects do you want to study more next year?</p>
+          <button onclick="nextQuestion('Math')">Math</button>
+          <button onclick="nextQuestion('Science')">Science</button>
+          <button onclick="nextQuestion('English')">English</button>
+          <button onclick="nextQuestion('History')">History</button>
+        </div>
+
+        <!-- Finish -->
+        <div class="quiz-question">
+          <p>All done! 🎉 Thank you for sharing your choices.</p>
+          <button onclick="closeModal('welcome-quiz-modal')">Finish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
