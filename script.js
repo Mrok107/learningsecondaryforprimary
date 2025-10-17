@@ -1,54 +1,87 @@
 // === Modal Control ===
-function openSignUp() {
-  document.getElementById("signup-modal").style.display = "block";
-}
-
-function openLogin() {
-  document.getElementById("login-modal").style.display = "block";
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.style.display = "block";
 }
 
 function closeModal(id) {
-  document.getElementById(id).style.display = "none";
+  const modal = document.getElementById(id);
+  if (modal) modal.style.display = "none";
+}
+
+function openSignUp() {
+  openModal("signup-modal");
+}
+
+function openLogin() {
+  openModal("login-modal");
 }
 
 // === Quiz Logic ===
 function checkAnswer(button, type) {
-  const siblings = button.parentNode.querySelectorAll('button');
-  siblings.forEach(btn => btn.disabled = true);
+  const siblings = button.parentNode.querySelectorAll("button");
+  siblings.forEach((btn) => (btn.disabled = true));
 
-  if (type === 'correct') {
-    button.classList.add('correct');
+  if (type === "correct") {
+    button.classList.add("correct");
     button.innerText = "✅ Correct!";
   } else {
-    button.classList.add('wrong');
+    button.classList.add("wrong");
     button.innerText = "❌ Try again!";
   }
 }
 
-// === Login / Signup Logic ===
+// === Welcome Quiz Logic ===
+function nextQuestion(answer) {
+  let quizData = JSON.parse(localStorage.getItem("welcomeQuiz")) || [];
+  quizData.push(answer);
+  localStorage.setItem("welcomeQuiz", JSON.stringify(quizData));
+
+  const current = document.querySelector(".quiz-question.active");
+  if (!current) return;
+  current.classList.remove("active");
+
+  const next = current.nextElementSibling;
+  if (next) next.classList.add("active");
+}
+
+// === DOM Ready ===
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
   const loginForm = document.getElementById("login-form");
   const authButtons = document.querySelector(".auth-buttons");
   const greeting = document.getElementById("user-greeting");
 
+  // --- Sign Up ---
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
       e.preventDefault();
+
       const name = document.getElementById("signup-name").value;
       const year = document.getElementById("signup-year").value;
       const email = document.getElementById("signup-email").value;
       const password = document.getElementById("signup-password").value;
 
+      // Save user info
       localStorage.setItem("user", JSON.stringify({ name, year, email, password }));
-      alert("✅ Sign-up successful! You can now log in.");
+
+      // Reset Welcome Quiz
+      const questions = document.querySelectorAll(".quiz-question");
+      questions.forEach((q) => q.classList.remove("active"));
+      if (questions[0]) questions[0].classList.add("active");
+      localStorage.setItem("welcomeQuiz", JSON.stringify([]));
+
+      // Close Sign Up modal & open Welcome Quiz
       closeModal("signup-modal");
+      openModal("welcome-quiz-modal");
     });
   }
 
+  // --- Log In ---
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
+
       const name = document.getElementById("login-name").value;
       const email = document.getElementById("login-email").value;
       const password = document.getElementById("login-password").value;
@@ -65,8 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  showUserGreeting();
-
+  // --- Show greeting if already logged in ---
   function showUserGreeting() {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser && greeting) {
@@ -74,46 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (authButtons) authButtons.style.display = "none";
     }
   }
+
+  showUserGreeting();
+
+  // --- Close modal when clicking outside ---
+  window.onclick = function (event) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => {
+      if (event.target === modal) modal.style.display = "none";
+    });
+  };
 });
-
-// === Close modal when clicking outside ===
-window.onclick = function (event) {
-  const signup = document.getElementById("signup-modal");
-  const login = document.getElementById("login-modal");
-  if (event.target === signup) signup.style.display = "none";
-  if (event.target === login) login.style.display = "none";
-};
-// Welcome Quiz Logic
-function nextQuestion(answer) {
-  // Save answer in localStorage
-  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
-  quizData.push(answer);
-  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
-
-  // Move to next question
-  const current = document.querySelector('.quiz-question.active');
-  current.classList.remove('active');
-  const next = current.nextElementSibling;
-  if (next) {
-    next.classList.add('active');
-  }
-}
-
-// After sign up, open welcome quiz
-document.getElementById('signup-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById('signup-name').value;
-  const year = document.getElementById('signup-year').value;
-  const email = document.getElementById('signup-email').value;
-  const password = document.getElementById('signup-password').value;
-
-  localStorage.setItem('user', JSON.stringify({ name, year, email, password }));
-
-  closeModal('signup-modal');
-  openModal('welcome-quiz-modal');
-});
-
-function openModal(id) {
-  document.getElementById(id).style.display = 'block';
-}
