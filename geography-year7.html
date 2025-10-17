@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 7 Geography Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>🌍 Year 7 Geography Quiz</h1>
+      <div id="user-greeting" class="user-greeting"></div>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>The Earth & Climate</h2>
+
+    <div id="geography-quiz">
+      <p>1. What layer of Earth do we live on?</p>
+      <button onclick="checkAnswer(this,'correct')">Crust</button>
+      <button onclick="checkAnswer(this,'wrong')">Core</button>
+      <button onclick="checkAnswer(this,'wrong')">Mantle</button>
+
+      <p>2. What gas do humans exhale?</p>
+      <button onclick="checkAnswer(this,'wrong')">Oxygen</button>
+      <button onclick="checkAnswer(this,'correct')">Carbon Dioxide</button>
+      <button onclick="checkAnswer(this,'wrong')">Nitrogen</button>
+
+      <p>3. What is global warming caused by?</p>
+      <button onclick="checkAnswer(this,'wrong')">Too many trees</button>
+      <button onclick="checkAnswer(this,'correct')">Greenhouse gases</button>
+      <button onclick="checkAnswer(this,'wrong')">Rainfall</button>
+    </div>
+
+    <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+  </main>
+
+  <footer>
+    <p>© 2025 Learn Smart | Year 7 Geography</p>
+  </footer>
+</body>
+</html>
