@@ -1,119 +1,108 @@
 // === Modal Control ===
-function openModal(id) {
-  const modal = document.getElementById(id);
-  if (modal) modal.style.display = "block";
-}
+function openSignUp() { document.getElementById("signup-modal").style.display = "block"; }
+function openLogin() { document.getElementById("login-modal").style.display = "block"; }
+function closeModal(id) { document.getElementById(id).style.display = "none"; }
 
-function closeModal(id) {
-  const modal = document.getElementById(id);
-  if (modal) modal.style.display = "none";
-}
-
-function openSignUp() {
-  openModal("signup-modal");
-}
-
-function openLogin() {
-  openModal("login-modal");
-}
-
-// === Quiz Logic ===
+// === Quiz Logic for Answer Buttons ===
 function checkAnswer(button, type) {
-  const siblings = button.parentNode.querySelectorAll("button");
-  siblings.forEach((btn) => (btn.disabled = true));
+  const siblings = button.parentNode.querySelectorAll('button');
+  siblings.forEach(btn => btn.disabled = true);
 
-  if (type === "correct") {
-    button.classList.add("correct");
+  if (type === 'correct') {
+    button.classList.add('correct');
     button.innerText = "✅ Correct!";
   } else {
-    button.classList.add("wrong");
+    button.classList.add('wrong');
     button.innerText = "❌ Try again!";
   }
 }
 
 // === Welcome Quiz Logic ===
 function nextQuestion(answer) {
-  let quizData = JSON.parse(localStorage.getItem("welcomeQuiz")) || [];
+  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
   quizData.push(answer);
-  localStorage.setItem("welcomeQuiz", JSON.stringify(quizData));
+  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
 
-  const current = document.querySelector(".quiz-question.active");
-  if (!current) return;
-  current.classList.remove("active");
-
+  const current = document.querySelector('.quiz-question.active');
+  current.classList.remove('active');
   const next = current.nextElementSibling;
-  if (next) next.classList.add("active");
+  if (next) next.classList.add('active');
 }
 
-// === DOM Ready ===
+// === Login / Signup Logic ===
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
   const loginForm = document.getElementById("login-form");
+
   const authButtons = document.querySelector(".auth-buttons");
   const greeting = document.getElementById("user-greeting");
+  const logoutBtn = document.getElementById("logout-btn");
 
-  // --- Sign Up ---
-  if (signupForm) {
-    signupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+  // Sign Up
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("signup-name").value;
+    const year = document.getElementById("signup-year").value;
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
 
-      const name = document.getElementById("signup-name").value;
-      const year = document.getElementById("signup-year").value;
-      const email = document.getElementById("signup-email").value;
-      const password = document.getElementById("signup-password").value;
+    localStorage.setItem("user", JSON.stringify({ name, year, email, password }));
+    closeModal("signup-modal");
+    openModal("welcome-quiz-modal");
+  });
 
-      // Save user info
-      localStorage.setItem("user", JSON.stringify({ name, year, email, password }));
+  // Log In
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("login-name").value;
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
 
-      // Reset Welcome Quiz
-      const questions = document.querySelectorAll(".quiz-question");
-      questions.forEach((q) => q.classList.remove("active"));
-      if (questions[0]) questions[0].classList.add("active");
-      localStorage.setItem("welcomeQuiz", JSON.stringify([]));
-
-      // Close Sign Up modal & open Welcome Quiz
-      closeModal("signup-modal");
-      openModal("welcome-quiz-modal");
-    });
-  }
-
-  // --- Log In ---
-  if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("login-name").value;
-      const email = document.getElementById("login-email").value;
-      const password = document.getElementById("login-password").value;
-
-      const savedUser = JSON.parse(localStorage.getItem("user"));
-
-      if (savedUser && savedUser.email === email && savedUser.password === password) {
-        closeModal("login-modal");
-        localStorage.setItem("loggedInUser", JSON.stringify(savedUser));
-        showUserGreeting();
-      } else {
-        alert("❌ Invalid login details.");
-      }
-    });
-  }
-
-  // --- Show greeting if already logged in ---
-  function showUserGreeting() {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser && greeting) {
-      greeting.innerText = `👋 Hello, ${loggedInUser.name} (${loggedInUser.year})`;
-      if (authButtons) authButtons.style.display = "none";
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser && savedUser.email === email && savedUser.password === password) {
+      localStorage.setItem("loggedInUser", JSON.stringify(savedUser));
+      closeModal("login-modal");
+      showUserGreeting();
+    } else {
+      alert("❌ Invalid login details.");
     }
-  }
+  });
 
   showUserGreeting();
-
-  // --- Close modal when clicking outside ---
-  window.onclick = function (event) {
-    const modals = document.querySelectorAll(".modal");
-    modals.forEach((modal) => {
-      if (event.target === modal) modal.style.display = "none";
-    });
-  };
 });
+
+// Show greeting + hide/show buttons
+function showUserGreeting() {
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const greeting = document.getElementById("user-greeting");
+  const authButtons = document.querySelector(".auth-buttons");
+  const logoutBtn = document.getElementById("logout-btn");
+
+  if (loggedInUser) {
+    if (greeting) greeting.innerText = `👋 Hello, ${loggedInUser.name} (${loggedInUser.year})`;
+    if (authButtons) authButtons.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "inline-block";
+  } else {
+    if (greeting) greeting.innerText = "";
+    if (authButtons) authButtons.style.display = "block";
+    if (logoutBtn) logoutBtn.style.display = "none";
+  }
+}
+
+// Logout function
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  showUserGreeting();
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  const modals = ["signup-modal", "login-modal", "welcome-quiz-modal"];
+  modals.forEach(id => {
+    const modal = document.getElementById(id);
+    if (event.target === modal) modal.style.display = "none";
+  });
+}
+
+// Open any modal by ID
+function openModal(id) { document.getElementById(id).style.display = 'block'; }
