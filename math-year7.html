@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 7 Math Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>🧮 Year 7 Math Quiz</h1>
+      <div id="user-greeting" class="user-greeting"></div>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>Algebra & Fractions</h2>
+
+    <div id="math-quiz">
+      <p>1. Solve: 2x + 3 = 9</p>
+      <button onclick="checkAnswer(this,'correct')">x = 3</button>
+      <button onclick="checkAnswer(this,'wrong')">x = 2</button>
+      <button onclick="checkAnswer(this,'wrong')">x = 6</button>
+
+      <p>2. Simplify: 4/8</p>
+      <button onclick="checkAnswer(this,'correct')">1/2</button>
+      <button onclick="checkAnswer(this,'wrong')">2</button>
+      <button onclick="checkAnswer(this,'wrong')">1/4</button>
+
+      <p>3. What is the value of 5²?</p>
+      <button onclick="checkAnswer(this,'wrong')">15</button>
+      <button onclick="checkAnswer(this,'correct')">25</button>
+      <button onclick="checkAnswer(this,'wrong')">20</button>
+    </div>
+
+    <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+  </main>
+
+  <footer>
+    <p>© 2025 Learn Smart | Year 7 Mathematics</p>
+  </footer>
+</body>
+</html>
