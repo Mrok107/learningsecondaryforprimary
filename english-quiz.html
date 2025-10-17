@@ -3,42 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English Quiz | Learn Smart!</title>
+  <title>Year 7 English Quiz</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="container header-content">
-      <h1>📚 English Quiz</h1>
-      <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+      <h1>📖 Year 7 English Quiz</h1>
+      <div id="user-greeting" class="user-greeting"></div>
     </div>
   </header>
 
   <main class="container card">
-    <h2>Test your English skills!</h2>
-    <div class="quiz">
-      <p>1. Which of these is a complete sentence?</p>
-      <button onclick="checkAnswer(this,'wrong')">Jumped over the fence.</button>
-      <button onclick="checkAnswer(this,'correct')">The dog jumps over the fence.</button>
-      <button onclick="checkAnswer(this,'wrong')">Over the fence.</button>
+    <h2>Grammar & Comprehension</h2>
 
-      <p>2. What does “curious” mean?</p>
-      <button onclick="checkAnswer(this,'correct')">Likes to ask questions</button>
-      <button onclick="checkAnswer(this,'wrong')">Always sleepy</button>
-      <button onclick="checkAnswer(this,'wrong')">Very tall</button>
+    <div id="english-quiz">
+      <p>1. Which word is a verb?</p>
+      <button onclick="checkAnswer(this,'correct')">Run</button>
+      <button onclick="checkAnswer(this,'wrong')">Quick</button>
+      <button onclick="checkAnswer(this,'wrong')">Beautiful</button>
 
-      <p>3. Every sentence needs…</p>
-      <button onclick="checkAnswer(this,'correct')">A subject and a verb</button>
-      <button onclick="checkAnswer(this,'wrong')">A number and a color</button>
-      <button onclick="checkAnswer(this,'wrong')">A dog and a cat</button>
+      <p>2. Identify the adjective: "The tall tree swayed in the wind."</p>
+      <button onclick="checkAnswer(this,'wrong')">Tree</button>
+      <button onclick="checkAnswer(this,'correct')">Tall</button>
+      <button onclick="checkAnswer(this,'wrong')">Wind</button>
+
+      <p>3. What is the main idea of a paragraph called?</p>
+      <button onclick="checkAnswer(this,'correct')">Topic sentence</button>
+      <button onclick="checkAnswer(this,'wrong')">Footnote</button>
+      <button onclick="checkAnswer(this,'wrong')">Title</button>
     </div>
+
+    <a href="index.html" class="subject-btn">⬅ Back to Home</a>
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2025 Learn Smart | Made for young learners 🌈</p>
-    </div>
+    <p>© 2025 Learn Smart | Year 7 English</p>
   </footer>
 </body>
 </html>
