@@ -38,48 +38,29 @@ header p {
   margin-bottom: 1.5rem;
 }
 
-/* Header emojis decorations */
-header::before {
-  content: "🧮📚";
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  font-size: 1.5rem;
-}
-
-header::after {
-  content: "🌍🔬";
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  font-size: 1.5rem;
-}
-
 .user-greeting {
   position: absolute;
   top: 1rem;
   right: 5rem;
   font-weight: bold;
-  font-size: 1rem;
 }
 
-/* Logout Button */
 #logout-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
   padding: 0.4rem 0.8rem;
-  font-weight: bold;
-  border-radius: 8px;
   background-color: #ffdd00;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  font-weight: bold;
+  display: none;
+  transition: background-color 0.2s;
 }
 
 #logout-btn:hover {
   background-color: #fbc02d;
-  transform: translateY(-2px);
 }
 
 /* 🧭 Navigation */
@@ -122,11 +103,6 @@ nav a:focus {
 
 .card p {
   margin-bottom: 1rem;
-}
-
-.card ul {
-  margin-left: 1.2rem;
-  list-style-type: "✨ ";
 }
 
 /* 📚 Subject Buttons */
@@ -184,6 +160,23 @@ nav a:focus {
 .quiz button.wrong {
   background: linear-gradient(135deg, #e53935, #b71c1c);
   color: white;
+}
+
+/* Take Quiz button */
+.show-quiz-btn {
+  margin: 1rem 0;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #00a8e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.show-quiz-btn:hover {
+  background-color: #0077b6;
 }
 
 /* 🦶 Footer */
@@ -303,10 +296,10 @@ footer {
   }
 
   .quiz button,
+  .show-quiz-btn,
   .subject-btn,
   .auth-buttons button,
-  .modal-content button,
-  #logout-btn {
+  .modal-content button {
     width: 100%;
   }
 
@@ -314,9 +307,14 @@ footer {
     position: static;
     margin-top: 0.5rem;
   }
+
+  #logout-btn {
+    position: static;
+    margin-top: 0.5rem;
+  }
 }
 
-/* 🎉 Welcome Quiz Modal */
+/* Welcome Quiz Modal */
 .quiz-modal .quiz-question {
   display: none;
   opacity: 0;
