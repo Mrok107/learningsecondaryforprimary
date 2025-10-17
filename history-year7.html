@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 7 History Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>🏺 Year 7 History Quiz</h1>
+      <div id="user-greeting" class="user-greeting"></div>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>Ancient Civilisations</h2>
+
+    <div id="history-quiz">
+      <p>1. Which river was vital to Ancient Egypt?</p>
+      <button onclick="checkAnswer(this,'correct')">Nile</button>
+      <button onclick="checkAnswer(this,'wrong')">Amazon</button>
+      <button onclick="checkAnswer(this,'wrong')">Thames</button>
+
+      <p>2. Who was the first emperor of Rome?</p>
+      <button onclick="checkAnswer(this,'wrong')">Julius Caesar</button>
+      <button onclick="checkAnswer(this,'correct')">Augustus</button>
+      <button onclick="checkAnswer(this,'wrong')">Nero</button>
+
+      <p>3. What writing system did the Ancient Egyptians use?</p>
+      <button onclick="checkAnswer(this,'correct')">Hieroglyphics</button>
+      <button onclick="checkAnswer(this,'wrong')">Cuneiform</button>
+      <button onclick="checkAnswer(this,'wrong')">Latin Alphabet</button>
+    </div>
+
+    <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+  </main>
+
+  <footer>
+    <p>© 2025 Learn Smart | Year 7 History</p>
+  </footer>
+</body>
+</html>
