@@ -45,6 +45,27 @@ header p {
   font-weight: bold;
 }
 
+/* 🏫 Banner Emoji Styles */
+.banner-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.banner-left,
+.banner-right {
+  font-size: 2rem; /* larger symbols */
+  flex: 1;
+}
+
+.banner-center {
+  flex: 2;
+}
+
 /* 🧭 Navigation */
 nav ul {
   list-style: none;
@@ -149,7 +170,7 @@ nav a:focus {
   color: white;
 }
 
-/* Take Quiz button (if needed elsewhere) */
+/* Take Quiz button */
 .show-quiz-btn {
   margin: 1rem 0;
   padding: 0.6rem 1.2rem;
@@ -295,6 +316,7 @@ footer {
     margin-top: 0.5rem;
   }
 }
+
 /* Welcome Quiz Modal */
 .quiz-modal .quiz-question {
   display: none;
@@ -323,4 +345,3 @@ footer {
   background-color: #0077b6;
   transform: translateY(-2px);
 }
-
