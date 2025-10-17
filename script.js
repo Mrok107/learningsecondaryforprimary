@@ -83,3 +83,37 @@ window.onclick = function (event) {
   if (event.target === signup) signup.style.display = "none";
   if (event.target === login) login.style.display = "none";
 };
+// Welcome Quiz Logic
+function nextQuestion(answer) {
+  // Save answer in localStorage
+  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
+  quizData.push(answer);
+  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
+
+  // Move to next question
+  const current = document.querySelector('.quiz-question.active');
+  current.classList.remove('active');
+  const next = current.nextElementSibling;
+  if (next) {
+    next.classList.add('active');
+  }
+}
+
+// After sign up, open welcome quiz
+document.getElementById('signup-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('signup-name').value;
+  const year = document.getElementById('signup-year').value;
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
+
+  localStorage.setItem('user', JSON.stringify({ name, year, email, password }));
+
+  closeModal('signup-modal');
+  openModal('welcome-quiz-modal');
+});
+
+function openModal(id) {
+  document.getElementById(id).style.display = 'block';
+}
