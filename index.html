@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Learn Smart!</title>
-
-  <!-- Link to external CSS -->
+  <title>Learn Smart! - Year 7 Topics</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Link to external JavaScript -->
   <script src="script.js" defer></script>
 </head>
 
@@ -16,20 +13,20 @@
   <header>
     <div class="container header-content">
       <h1>🌟 Learn Smart!</h1>
-      <p>Fun learning for curious primary students</p>
+      <p>Fun and easy learning for Year 7 students!</p>
 
-      <!-- User Greeting (top right) -->
+      <!-- User Greeting -->
       <div id="user-greeting" class="user-greeting"></div>
 
       <!-- Navigation -->
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#topics">Year 7 Topics</a></li>
         </ul>
       </nav>
 
-      <!-- Sign Up / Log In Buttons -->
+      <!-- Auth Buttons -->
       <div class="auth-buttons">
         <button type="button" onclick="openSignUp()">Sign Up</button>
         <button type="button" onclick="openLogin()">Log In</button>
@@ -41,16 +38,17 @@
   <main class="container">
     <section id="about" class="card">
       <h2>Welcome to Learn Smart!</h2>
-      <p>Explore fun and interactive quizzes to learn Math, Science, English, and History!</p>
+      <p>Ready for Year 7? Explore fun interactive quizzes for every subject and see how much you already know!</p>
     </section>
 
-    <section id="subjects" class="card">
-      <h2>📚 Subjects</h2>
+    <section id="topics" class="card">
+      <h2>📚 Year 7 Topics</h2>
       <div class="subject-buttons">
-        <a href="math-quiz.html" class="subject-btn">🧮 Math</a>
-        <a href="science-quiz.html" class="subject-btn">🔬 Science</a>
-        <a href="english-quiz.html" class="subject-btn">📚 English</a>
-        <a href="history-quiz.html" class="subject-btn">🏺 History</a>
+        <a href="math-year7.html" class="subject-btn">🧮 Mathematics: Algebra & Fractions</a>
+        <a href="science-year7.html" class="subject-btn">🔬 Science: Cells & Forces</a>
+        <a href="english-year7.html" class="subject-btn">📖 English: Grammar & Comprehension</a>
+        <a href="history-year7.html" class="subject-btn">🏺 History: Ancient Civilisations</a>
+        <a href="geography-year7.html" class="subject-btn">🌍 Geography: The Earth & Climate</a>
       </div>
     </section>
   </main>
@@ -58,7 +56,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>© 2025 Learn Smart | Made for young learners 🌈</p>
+      <p>© 2025 Learn Smart | Helping Year 7 students shine 🌈</p>
     </div>
   </footer>
 
@@ -80,12 +78,9 @@
         <label for="signup-year">Year of School:</label>
         <select id="signup-year" required>
           <option value="">Select your year</option>
-          <option value="Year 1">Year 1</option>
-          <option value="Year 2">Year 2</option>
-          <option value="Year 3">Year 3</option>
-          <option value="Year 4">Year 4</option>
-          <option value="Year 5">Year 5</option>
           <option value="Year 6">Year 6</option>
+          <option value="Year 7">Year 7</option>
+          <option value="Year 8">Year 8</option>
         </select>
 
         <button type="submit">Sign Up</button>
