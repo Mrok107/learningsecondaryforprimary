@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year 7 Science Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>🔬 Year 7 Science Quiz</h1>
+      <div id="user-greeting" class="user-greeting"></div>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>Cells & Forces</h2>
+
+    <div id="science-quiz">
+      <p>1. What is the basic unit of life?</p>
+      <button onclick="checkAnswer(this,'correct')">Cell</button>
+      <button onclick="checkAnswer(this,'wrong')">Atom</button>
+      <button onclick="checkAnswer(this,'wrong')">Tissue</button>
+
+      <p>2. Which force pulls objects toward Earth?</p>
+      <button onclick="checkAnswer(this,'correct')">Gravity</button>
+      <button onclick="checkAnswer(this,'wrong')">Friction</button>
+      <button onclick="checkAnswer(this,'wrong')">Magnetism</button>
+
+      <p>3. What part of a plant cell contains chlorophyll?</p>
+      <button onclick="checkAnswer(this,'wrong')">Nucleus</button>
+      <button onclick="checkAnswer(this,'wrong')">Vacuole</button>
+      <button onclick="checkAnswer(this,'correct')">Chloroplast</button>
+    </div>
+
+    <a href="index.html" class="subject-btn">⬅ Back to Home</a>
+  </main>
+
+  <footer>
+    <p>© 2025 Learn Smart | Year 7 Science</p>
+  </footer>
+</body>
+</html>
