@@ -7,26 +7,12 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
 </head>
-
 <body>
   <!-- Header -->
   <header>
-    <div class="container header-content banner-flex">
-      <!-- Left emojis -->
-      <div class="banner-left">
-        🧮 📚 ✏️
-      </div>
-
-      <!-- Center title -->
-      <div class="banner-center">
-        <h1>🌟 Learn Smart!</h1>
-        <p>Fun and easy learning for Year 7 students!</p>
-      </div>
-
-      <!-- Right emojis -->
-      <div class="banner-right">
-        🌍 🔬 🧪
-      </div>
+    <div class="container header-content">
+      <h1>📚🧮 Learn Smart! 🌍🔬</h1>
+      <p>Fun and easy learning for Year 7 students!</p>
 
       <!-- User Greeting -->
       <div id="user-greeting" class="user-greeting"></div>
@@ -49,7 +35,7 @@
 
   <!-- Main -->
   <main class="container">
-    <!-- 🌟 About Section -->
+    <!-- About -->
     <section id="about" class="card">
       <h2>🌟 Welcome to Learn Smart!</h2>
       <p>
@@ -66,7 +52,7 @@
       </p>
     </section>
 
-    <!-- 📚 Year 7 Topics Section -->
+    <!-- Year 7 Topics -->
     <section id="topics" class="card">
       <h2>📚 Year 7 Topics</h2>
       <div class="subject-buttons">
@@ -94,13 +80,10 @@
       <form id="signup-form">
         <label for="signup-name">Name:</label>
         <input type="text" id="signup-name" required placeholder="Your name" />
-
         <label for="signup-email">Email:</label>
         <input type="email" id="signup-email" required placeholder="example@email.com" />
-
         <label for="signup-password">Password:</label>
         <input type="password" id="signup-password" required placeholder="Enter password" />
-
         <label for="signup-year">Year of School:</label>
         <select id="signup-year" required>
           <option value="">Select your year</option>
@@ -108,7 +91,6 @@
           <option value="Year 7">Year 7</option>
           <option value="Year 8">Year 8</option>
         </select>
-
         <button type="submit">Sign Up</button>
       </form>
     </div>
@@ -122,13 +104,10 @@
       <form id="login-form">
         <label for="login-name">Name:</label>
         <input type="text" id="login-name" required placeholder="Your name" />
-
         <label for="login-email">Email:</label>
         <input type="email" id="login-email" required placeholder="example@email.com" />
-
         <label for="login-password">Password:</label>
         <input type="password" id="login-password" required placeholder="Enter password" />
-
         <button type="submit">Log In</button>
       </form>
     </div>
@@ -140,16 +119,12 @@
       <span class="close" onclick="closeModal('welcome-quiz-modal')">&times;</span>
       <h2>🎉 Welcome to Learn Smart!</h2>
       <p>Let's get to know you a bit! Answer a few quick questions:</p>
-
       <div id="quiz-questions">
-        <!-- Question 1 -->
         <div class="quiz-question active">
           <p>Do you know what GCSEs are?</p>
           <button onclick="nextQuestion('Yes')">Yes</button>
           <button onclick="nextQuestion('No')">No</button>
         </div>
-
-        <!-- Question 2 -->
         <div class="quiz-question">
           <p>Which subjects do you like? (Choose any)</p>
           <button onclick="nextQuestion('Math')">Math</button>
@@ -157,8 +132,6 @@
           <button onclick="nextQuestion('English')">English</button>
           <button onclick="nextQuestion('History')">History</button>
         </div>
-
-        <!-- Question 3 -->
         <div class="quiz-question">
           <p>Which subjects do you dislike?</p>
           <button onclick="nextQuestion('Math')">Math</button>
@@ -166,8 +139,6 @@
           <button onclick="nextQuestion('English')">English</button>
           <button onclick="nextQuestion('History')">History</button>
         </div>
-
-        <!-- Question 4 -->
         <div class="quiz-question">
           <p>Which subjects do you want to study more next year?</p>
           <button onclick="nextQuestion('Math')">Math</button>
@@ -175,8 +146,6 @@
           <button onclick="nextQuestion('English')">English</button>
           <button onclick="nextQuestion('History')">History</button>
         </div>
-
-        <!-- Finish -->
         <div class="quiz-question">
           <p>All done! 🎉 Thank you for sharing your choices.</p>
           <button onclick="closeModal('welcome-quiz-modal')">Finish</button>
@@ -184,6 +153,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>
