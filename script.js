@@ -105,3 +105,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === quiz) quiz.style.display = "none";
   };
 });
+function logout() {
+  localStorage.removeItem('loggedInUser');
+  const greeting = document.getElementById('user-greeting');
+  const logoutBtn = document.getElementById('logout-btn');
+  const authButtons = document.querySelector('.auth-buttons');
+
+  if (greeting) greeting.innerText = '';
+  if (logoutBtn) logoutBtn.style.display = 'none';
+  if (authButtons) authButtons.style.display = 'block';
+}
+
+// Show greeting and logout button on login
+function showUserGreeting() {
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const greeting = document.getElementById("user-greeting");
+  const logoutBtn = document.getElementById("logout-btn");
+  const authButtons = document.querySelector(".auth-buttons");
+
+  if (loggedInUser && greeting) {
+    greeting.innerText = `👋 Hello, ${loggedInUser.name} (${loggedInUser.year})`;
+    if (logoutBtn) logoutBtn.style.display = 'block';
+    if (authButtons) authButtons.style.display = 'none';
+  }
+}
+
+// Call showUserGreeting on page load
+document.addEventListener("DOMContentLoaded", showUserGreeting);
