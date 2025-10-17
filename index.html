@@ -15,9 +15,9 @@
       <h1>🌟 Learn Smart!</h1>
       <p>Fun and easy learning for Year 7 students!</p>
 
-      <!-- User Area: Greeting + Logout -->
+      <!-- User Greeting + Logout -->
       <div class="user-area">
-        <span id="user-greeting" class="user-greeting"></span>
+        <div id="user-greeting" class="user-greeting"></div>
         <button id="logout-btn" onclick="logout()">Log Out</button>
       </div>
 
@@ -132,42 +132,57 @@
       <p>Let's get to know you a bit! Answer a few quick questions:</p>
 
       <div id="quiz-questions">
-        <!-- Question 1 -->
+        <!-- Question 1: GCSE knowledge -->
         <div class="quiz-question active">
           <p>Do you know what GCSEs are?</p>
-          <button onclick="nextQuestion('Yes')">Yes</button>
-          <button onclick="nextQuestion('No')">No</button>
+          <button onclick="nextQuestion('Yes', 'gcse')">Yes</button>
+          <button onclick="nextQuestion('No', 'gcse')">No</button>
         </div>
 
-        <!-- Question 2 -->
+        <!-- Question 2: Subjects you like -->
         <div class="quiz-question">
           <p>Which subjects do you like? (Choose any)</p>
-          <button onclick="nextQuestion('Math')">Math</button>
-          <button onclick="nextQuestion('Science')">Science</button>
           <button onclick="nextQuestion('English')">English</button>
+          <button onclick="nextQuestion('Maths')">Maths</button>
+          <button onclick="nextQuestion('Science')">Science</button>
+          <button onclick="nextQuestion('Geography')">Geography</button>
           <button onclick="nextQuestion('History')">History</button>
+          <button onclick="nextQuestion('Foreign Language')">Foreign Language</button>
+          <button onclick="nextQuestion('Computing')">Computing</button>
         </div>
 
-        <!-- Question 3 -->
+        <!-- Question 3: Subjects you dislike -->
         <div class="quiz-question">
           <p>Which subjects do you dislike?</p>
-          <button onclick="nextQuestion('Math')">Math</button>
-          <button onclick="nextQuestion('Science')">Science</button>
           <button onclick="nextQuestion('English')">English</button>
+          <button onclick="nextQuestion('Maths')">Maths</button>
+          <button onclick="nextQuestion('Science')">Science</button>
+          <button onclick="nextQuestion('Geography')">Geography</button>
           <button onclick="nextQuestion('History')">History</button>
+          <button onclick="nextQuestion('Foreign Language')">Foreign Language</button>
+          <button onclick="nextQuestion('Computing')">Computing</button>
         </div>
 
-        <!-- Question 4 -->
+        <!-- Question 4: Subjects to study more -->
         <div class="quiz-question">
           <p>Which subjects do you want to study more next year?</p>
-          <button onclick="nextQuestion('Math')">Math</button>
-          <button onclick="nextQuestion('Science')">Science</button>
           <button onclick="nextQuestion('English')">English</button>
+          <button onclick="nextQuestion('Maths')">Maths</button>
+          <button onclick="nextQuestion('Science')">Science</button>
+          <button onclick="nextQuestion('Geography')">Geography</button>
           <button onclick="nextQuestion('History')">History</button>
+          <button onclick="nextQuestion('Foreign Language')">Foreign Language</button>
+          <button onclick="nextQuestion('Computing')">Computing</button>
         </div>
 
-        <!-- Finish -->
-        <div class="quiz-question">
+        <!-- Conditional GCSE explanation -->
+        <div class="quiz-question" id="gcse-explanation">
+          <p>GCSEs (General Certificate of Secondary Education) are exams you take in different subjects at the end of Year 11. They help measure what you’ve learned and prepare you for further study!</p>
+          <button onclick="closeModal('welcome-quiz-modal')">Finish</button>
+        </div>
+
+        <!-- Finish if they already know GCSEs -->
+        <div class="quiz-question" id="finish-quiz">
           <p>All done! 🎉 Thank you for sharing your choices.</p>
           <button onclick="closeModal('welcome-quiz-modal')">Finish</button>
         </div>
