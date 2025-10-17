@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const authButtons = document.querySelector(".auth-buttons");
   const greeting = document.getElementById("user-greeting");
 
-  // Handle Sign Up
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Handle Log In
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -67,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Keep user logged in
   showUserGreeting();
 
   function showUserGreeting() {
