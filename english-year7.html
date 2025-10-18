@@ -21,37 +21,31 @@
     <section class="card quiz">
       <h2>📝 English Year 7 Quiz</h2>
 
-      <p>1. Which sentence uses the correct form of “their”?</p>
-      <button onclick="checkAnswer(this, 'correct')">Their house is at the end of the street.</button>
-      <button onclick="checkAnswer(this, 'wrong')">There house is at the end of the street.</button>
-      <button onclick="checkAnswer(this, 'wrong')">They’re house is at the end of the street.</button>
+      <!-- Question 1 -->
+      <div class="quiz-question active">
+        <p>1. Which sentence uses the correct form of “their”?</p>
+        <button onclick="nextEngQuestion(this, 'Their house is at the end of the street.')">Their house is at the end of the street.</button>
+        <button onclick="nextEngQuestion(this, 'There house is at the end of the street.')">There house is at the end of the street.</button>
+        <button onclick="nextEngQuestion(this, 'They’re house is at the end of the street.')">They’re house is at the end of the street.</button>
+      </div>
 
-      <p>2. Which word is an adjective?</p>
-      <button onclick="checkAnswer(this, 'correct')">Beautiful</button>
-      <button onclick="checkAnswer(this, 'wrong')">Run</button>
-      <button onclick="checkAnswer(this, 'wrong')">Quickly</button>
+      <!-- Question 2 -->
+      <div class="quiz-question">
+        <p>2. Which word is an adjective?</p>
+        <button onclick="nextEngQuestion(this, 'Beautiful')">Beautiful</button>
+        <button onclick="nextEngQuestion(this, 'Run')">Run</button>
+        <button onclick="nextEngQuestion(this, 'Quickly')">Quickly</button>
+      </div>
 
-      <p>3. What is a synonym for “happy”?</p>
-      <button onclick="checkAnswer(this, 'wrong')">Sad</button>
-      <button onclick="checkAnswer(this, 'correct')">Joyful</button>
-      <button onclick="checkAnswer(this, 'wrong')">Angry</button>
+      <!-- Question 3 -->
+      <div class="quiz-question">
+        <p>3. What is a synonym for “happy”?</p>
+        <button onclick="nextEngQuestion(this, 'Joyful')">Joyful</button>
+        <button onclick="nextEngQuestion(this, 'Sad')">Sad</button>
+        <button onclick="nextEngQuestion(this, 'Angry')">Angry</button>
+      </div>
 
-      <p>4. Choose the sentence with correct punctuation:</p>
-      <button onclick="checkAnswer(this, 'correct')">My friend, who lives next door, is kind.</button>
-      <button onclick="checkAnswer(this, 'wrong')">My friend who lives next door is kind</button>
-      <button onclick="checkAnswer(this, 'wrong')">My friend who lives next door, is kind</button>
-
-      <p>5. What does “narrative” mean?</p>
-      <button onclick="checkAnswer(this, 'correct')">A story or account of events</button>
-      <button onclick="checkAnswer(this, 'wrong')">A list of facts</button>
-      <button onclick="checkAnswer(this, 'wrong')">A question or riddle</button>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 Learn Smart | English Year 7 🌈</p>
-    </div>
-  </footer>
-</body>
-</html>
+      <!-- Question 4 -->
+      <div class="quiz-question">
+        <p>4. Choose the sentence with correct punctuation:</p>
+        <button onclick="next
