@@ -1,1 +1,37 @@
+<!-- Foreign Language Quiz Modal -->
+<div id="foreign-language-quiz-modal" class="modal">
+  <div class="modal-content quiz-modal">
+    <span class="close" onclick="closeModal('foreign-language-quiz-modal')">&times;</span>
+    <h2>🗣️ Foreign Language Quiz</h2>
+    <p>Test your basic language skills!</p>
+
+    <div id="fl-quiz-questions">
+      <div class="quiz-question active" id="fl-q1">
+        <p>What is "Hello" in French?</p>
+        <button onclick="nextFLQuestion(this, 'Bonjour')">Bonjour</button>
+        <button onclick="nextFLQuestion(this, 'Hola')">Hola</button>
+        <button onclick="nextFLQuestion(this, 'Ciao')">Ciao</button>
+      </div>
+
+      <div class="quiz-question" id="fl-q2">
+        <p>How do you say "Thank you" in Spanish?</p>
+        <button onclick="nextFLQuestion(this, 'Gracias')">Gracias</button>
+        <button onclick="nextFLQuestion(this, 'Merci')">Merci</button>
+        <button onclick="nextFLQuestion(this, 'Danke')">Danke</button>
+      </div>
+
+      <div class="quiz-question" id="fl-q3">
+        <p>What language is "Ciao" from?</p>
+        <button onclick="nextFLQuestion(this, 'Italian')">Italian</button>
+        <button onclick="nextFLQuestion(this, 'German')">German</button>
+        <button onclick="nextFLQuestion(this, 'French')">French</button>
+      </div>
+
+      <div class="quiz-question" id="fl-finish">
+        <p>🎉 Well done! You completed the Foreign Language quiz.</p>
+        <button onclick="closeModal('foreign-language-quiz-modal')">Finish</button>
+      </div>
+    </div>
+  </div>
+</div>
 
