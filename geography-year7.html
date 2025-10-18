@@ -3,43 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Year 7 Geography Quiz</title>
+  <title>Year 7 Geography Quiz | Learn Smart!</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="container header-content">
-      <h1>🌍 Year 7 Geography Quiz</h1>
+      <h1>🌍 Geography – Year 7 Quiz</h1>
+      <nav>
+        <a href="index.html" class="subject-btn">🏠 Back to Home</a>
+      </nav>
       <div id="user-greeting" class="user-greeting"></div>
     </div>
   </header>
 
-  <main class="container card">
+  <main class="container card quiz">
     <h2>The Earth & Climate</h2>
 
-    <div id="geography-quiz">
-      <p>1. What layer of Earth do we live on?</p>
-      <button onclick="checkAnswer(this,'correct')">Crust</button>
-      <button onclick="checkAnswer(this,'wrong')">Core</button>
-      <button onclick="checkAnswer(this,'wrong')">Mantle</button>
+    <p>1. What layer of Earth do we live on?</p>
+    <button onclick="checkAnswer(this,'correct')">Crust</button>
+    <button onclick="checkAnswer(this,'wrong')">Core</button>
+    <button onclick="checkAnswer(this,'wrong')">Mantle</button>
 
-      <p>2. What gas do humans exhale?</p>
-      <button onclick="checkAnswer(this,'wrong')">Oxygen</button>
-      <button onclick="checkAnswer(this,'correct')">Carbon Dioxide</button>
-      <button onclick="checkAnswer(this,'wrong')">Nitrogen</button>
+    <p>2. What gas do humans exhale?</p>
+    <button onclick="checkAnswer(this,'wrong')">Oxygen</button>
+    <button onclick="checkAnswer(this,'correct')">Carbon Dioxide</button>
+    <button onclick="checkAnswer(this,'wrong')">Nitrogen</button>
 
-      <p>3. What is global warming caused by?</p>
-      <button onclick="checkAnswer(this,'wrong')">Too many trees</button>
-      <button onclick="checkAnswer(this,'correct')">Greenhouse gases</button>
-      <button onclick="checkAnswer(this,'wrong')">Rainfall</button>
-    </div>
+    <p>3. What is global warming caused by?</p>
+    <button onclick="checkAnswer(this,'wrong')">Too many trees</button>
+    <button onclick="checkAnswer(this,'correct')">Greenhouse gases</button>
+    <button onclick="checkAnswer(this,'wrong')">Rainfall</button>
 
     <a href="index.html" class="subject-btn">⬅ Back to Home</a>
   </main>
 
   <footer>
-    <p>© 2025 Learn Smart | Year 7 Geography</p>
+    <div class="container">
+      <p>© 2025 Learn Smart | Year 7 Geography 🌈</p>
+    </div>
   </footer>
 </body>
 </html>
