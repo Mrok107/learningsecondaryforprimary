@@ -139,53 +139,53 @@
           <button onclick="nextQuestionGCSE('No')">No</button>
         </div>
 
-        <!-- GCSE Explanation (shown if child clicks No) -->
+        <!-- Conditional GCSE explanation -->
         <div class="quiz-question" id="gcse-explanation">
-          <p>GCSEs (General Certificate of Secondary Education) are exams you take in different subjects at the end of Year 11. They help measure what you’ve learned and prepare you for further study! 📚✏️</p>
+          <p>GCSEs (General Certificate of Secondary Education) are exams you take in different subjects at the end of Year 11. They help measure what you’ve learned and prepare you for further study!</p>
           <button onclick="nextAfterGCSE()">Next</button>
         </div>
 
-        <!-- Question 2: Subjects you like -->
+        <!-- Multiple-choice: Subjects you like -->
         <div class="quiz-question" id="subjects-like">
-          <p>Which subjects do you like? (Select all that apply)</p>
-          <div class="multi-choice">
-            <label><input type="checkbox" value="English"> English</label>
-            <label><input type="checkbox" value="Maths"> Maths</label>
-            <label><input type="checkbox" value="Science"> Science</label>
-            <label><input type="checkbox" value="Geography"> Geography</label>
-            <label><input type="checkbox" value="History"> History</label>
-            <label><input type="checkbox" value="Foreign Language"> Foreign Language</label>
-            <label><input type="checkbox" value="Computing"> Computing</label>
+          <p>Which subjects do you like? (Choose any)</p>
+          <div>
+            <label><input type="checkbox" value="English"> English</label><br>
+            <label><input type="checkbox" value="Maths"> Maths</label><br>
+            <label><input type="checkbox" value="Science"> Science</label><br>
+            <label><input type="checkbox" value="Geography"> Geography</label><br>
+            <label><input type="checkbox" value="History"> History</label><br>
+            <label><input type="checkbox" value="Foreign Language"> Foreign Language</label><br>
+            <label><input type="checkbox" value="Computing"> Computing</label><br>
           </div>
           <button onclick="nextMultiChoice('Subjects you like')">Next</button>
         </div>
 
-        <!-- Question 3: Subjects you dislike -->
+        <!-- Multiple-choice: Subjects you dislike -->
         <div class="quiz-question" id="subjects-dislike">
-          <p>Which subjects do you dislike? (Select all that apply)</p>
-          <div class="multi-choice">
-            <label><input type="checkbox" value="English"> English</label>
-            <label><input type="checkbox" value="Maths"> Maths</label>
-            <label><input type="checkbox" value="Science"> Science</label>
-            <label><input type="checkbox" value="Geography"> Geography</label>
-            <label><input type="checkbox" value="History"> History</label>
-            <label><input type="checkbox" value="Foreign Language"> Foreign Language</label>
-            <label><input type="checkbox" value="Computing"> Computing</label>
+          <p>Which subjects do you dislike? (Choose any)</p>
+          <div>
+            <label><input type="checkbox" value="English"> English</label><br>
+            <label><input type="checkbox" value="Maths"> Maths</label><br>
+            <label><input type="checkbox" value="Science"> Science</label><br>
+            <label><input type="checkbox" value="Geography"> Geography</label><br>
+            <label><input type="checkbox" value="History"> History</label><br>
+            <label><input type="checkbox" value="Foreign Language"> Foreign Language</label><br>
+            <label><input type="checkbox" value="Computing"> Computing</label><br>
           </div>
           <button onclick="nextMultiChoice('Subjects you dislike')">Next</button>
         </div>
 
-        <!-- Question 4: Subjects to study more -->
+        <!-- Multiple-choice: Subjects to study more -->
         <div class="quiz-question" id="subjects-more">
-          <p>Which subjects do you want to study more next year? (Select all that apply)</p>
-          <div class="multi-choice">
-            <label><input type="checkbox" value="English"> English</label>
-            <label><input type="checkbox" value="Maths"> Maths</label>
-            <label><input type="checkbox" value="Science"> Science</label>
-            <label><input type="checkbox" value="Geography"> Geography</label>
-            <label><input type="checkbox" value="History"> History</label>
-            <label><input type="checkbox" value="Foreign Language"> Foreign Language</label>
-            <label><input type="checkbox" value="Computing"> Computing</label>
+          <p>Which subjects do you want to study more next year? (Choose any)</p>
+          <div>
+            <label><input type="checkbox" value="English"> English</label><br>
+            <label><input type="checkbox" value="Maths"> Maths</label><br>
+            <label><input type="checkbox" value="Science"> Science</label><br>
+            <label><input type="checkbox" value="Geography"> Geography</label><br>
+            <label><input type="checkbox" value="History"> History</label><br>
+            <label><input type="checkbox" value="Foreign Language"> Foreign Language</label><br>
+            <label><input type="checkbox" value="Computing"> Computing</label><br>
           </div>
           <button onclick="nextMultiChoice('Subjects to study more')">Next</button>
         </div>
@@ -198,6 +198,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>
