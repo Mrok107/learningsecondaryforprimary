@@ -3,49 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Year 7 Science Quiz | Learn Smart!</title>
+  <title>Year 7 Science Quiz</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="container header-content">
-      <h1>🔬 Science – Year 7 Quiz</h1>
-      <nav>
-        <a href="index.html" class="subject-btn">🏠 Back to Home</a>
-      </nav>
+      <h1>🔬 Year 7 Science Quiz</h1>
       <div id="user-greeting" class="user-greeting"></div>
     </div>
   </header>
 
-  <main class="container card quiz">
-    <h2>Cells & Forces</h2>
-
-    <div id="science-quiz">
+  <main class="container card quiz-modal" id="science-quiz">
+    <div class="quiz-question active" id="science-q1">
       <p>1. What is the basic unit of life?</p>
-      <button onclick="checkAnswer(this,'correct')">Cell</button>
-      <button onclick="checkAnswer(this,'wrong')">Atom</button>
-      <button onclick="checkAnswer(this,'wrong')">Tissue</button>
+      <button onclick="nextQuizQuestion(this, 'Cell', 'science')">Cell</button>
+      <button onclick="nextQuizQuestion(this, 'Atom', 'science')">Atom</button>
+      <button onclick="nextQuizQuestion(this, 'Tissue', 'science')">Tissue</button>
+    </div>
 
+    <div class="quiz-question" id="science-q2">
       <p>2. Which force pulls objects toward Earth?</p>
-      <button onclick="checkAnswer(this,'correct')">Gravity</button>
-      <button onclick="checkAnswer(this,'wrong')">Friction</button>
-      <button onclick="checkAnswer(this,'wrong')">Magnetism</button>
+      <button onclick="nextQuizQuestion(this, 'Gravity', 'science')">Gravity</button>
+      <button onclick="nextQuizQuestion(this, 'Friction', 'science')">Friction</button>
+      <button onclick="nextQuizQuestion(this, 'Magnetism', 'science')">Magnetism</button>
+    </div>
 
+    <div class="quiz-question" id="science-q3">
       <p>3. What part of a plant cell contains chlorophyll?</p>
-      <button onclick="checkAnswer(this,'wrong')">Nucleus</button>
-      <button onclick="checkAnswer(this,'wrong')">Vacuole</button>
-      <button onclick="checkAnswer(this,'correct')">Chloroplast</button>
+      <button onclick="nextQuizQuestion(this, 'Chloroplast', 'science')">Chloroplast</button>
+      <button onclick="nextQuizQuestion(this, 'Nucleus', 'science')">Nucleus</button>
+      <button onclick="nextQuizQuestion(this, 'Vacuole', 'science')">Vacuole</button>
+    </div>
+
+    <div class="quiz-question" id="science-finish">
+      <p>🎉 Great job! You finished the Science quiz.</p>
+      <button onclick="finishQuiz('science')">Finish</button>
     </div>
 
     <a href="index.html" class="subject-btn">⬅ Back to Home</a>
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2025 Learn Smart | Year 7 Science 🌈</p>
-    </div>
+    <p>© 2025 Learn Smart | Year 7 Science</p>
   </footer>
 </body>
 </html>
-
