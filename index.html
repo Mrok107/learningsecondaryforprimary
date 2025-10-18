@@ -8,19 +8,16 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container header-content">
       <h1>🌟 Learn Smart!</h1>
       <p>Fun and easy learning for Year 7 students!</p>
 
-      <!-- User Greeting + Logout -->
       <div class="user-area">
         <div id="user-greeting" class="user-greeting"></div>
         <button id="logout-btn" onclick="logout()">Log Out</button>
       </div>
 
-      <!-- Navigation -->
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="#about">About</a></li>
@@ -28,38 +25,24 @@
         </ul>
       </nav>
 
-      <!-- Auth Buttons -->
       <div class="auth-buttons">
-        <button type="button" onclick="openSignUp()">Sign Up</button>
-        <button type="button" onclick="openLogin()">Log In</button>
+        <button onclick="openSignUp()">Sign Up</button>
+        <button onclick="openLogin()">Log In</button>
       </div>
     </div>
   </header>
 
-  <!-- Main -->
   <main class="container">
-    <!-- About Section -->
     <section id="about" class="card">
       <h2>🌟 Welcome to Learn Smart!</h2>
-      <p>
-        Hey there, future superstar! 🎓 Are you getting ready to start secondary school?  
-        You’re in the right place! <strong>Learn Smart</strong> is your fun learning hub designed to help you feel confident and excited for Year 7.
-      </p>
-      <p>
-        Explore quizzes, discover cool facts, and boost your knowledge in subjects like
-        <strong>Math</strong>, <strong>Science</strong>, <strong>English</strong>, <strong>History</strong>, and <strong>Geography</strong> — all made easy and enjoyable.
-      </p>
-      <p>
-        Whether you’re studying at school or just curious to learn more, Learn Smart helps
-        you stay one step ahead. 🚀 Let’s make learning fun, together!
-      </p>
+      <p>Hey there, future superstar! 🎓 Are you getting ready to start secondary school?  
+      You’re in the right place! <strong>Learn Smart</strong> helps you feel confident for Year 7.</p>
     </section>
 
-    <!-- Year 7 Topics Section -->
     <section id="topics" class="card">
       <h2>📚 Year 7 Topics</h2>
       <div class="subject-buttons">
-        <a href="math-year7.html" class="subject-btn">🧮 Mathematics: Algebra & Fractions</a>
+        <a href="maths-year7.html" class="subject-btn">🧮 Mathematics: Algebra & Fractions</a>
         <a href="science-year7.html" class="subject-btn">🔬 Science: Cells & Forces</a>
         <a href="english-year7.html" class="subject-btn">📖 English: Grammar & Comprehension</a>
         <a href="history-year7.html" class="subject-btn">🏺 History: Ancient Civilisations</a>
@@ -68,7 +51,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2025 Learn Smart | Helping Year 7 students shine 🌈</p>
@@ -83,13 +65,10 @@
       <form id="signup-form">
         <label for="signup-name">Name:</label>
         <input type="text" id="signup-name" required placeholder="Your name" />
-
         <label for="signup-email">Email:</label>
         <input type="email" id="signup-email" required placeholder="example@email.com" />
-
         <label for="signup-password">Password:</label>
         <input type="password" id="signup-password" required placeholder="Enter password" />
-
         <label for="signup-year">Year of School:</label>
         <select id="signup-year" required>
           <option value="">Select your year</option>
@@ -97,7 +76,6 @@
           <option value="Year 7">Year 7</option>
           <option value="Year 8">Year 8</option>
         </select>
-
         <button type="submit">Sign Up</button>
       </form>
     </div>
@@ -111,13 +89,10 @@
       <form id="login-form">
         <label for="login-name">Name:</label>
         <input type="text" id="login-name" required placeholder="Your name" />
-
         <label for="login-email">Email:</label>
         <input type="email" id="login-email" required placeholder="example@email.com" />
-
         <label for="login-password">Password:</label>
         <input type="password" id="login-password" required placeholder="Enter password" />
-
         <button type="submit">Log In</button>
       </form>
     </div>
@@ -127,70 +102,57 @@
   <div id="welcome-quiz-modal" class="modal">
     <div class="modal-content quiz-modal">
       <span class="close" onclick="closeModal('welcome-quiz-modal')">&times;</span>
-      <h2>🎉 Welcome to Learn Smart!</h2>
-      <p>Let's get to know you a bit! Answer a few quick questions:</p>
-      <div id="quiz-questions">
-        <!-- Dynamic welcome quiz questions from script.js -->
-      </div>
-    </div>
-  </div>
+      <h2>🎉 Welcome Quiz</h2>
 
-  <!-- Foreign Language Quiz Modal -->
-  <div id="foreign-language-quiz-modal" class="modal">
-    <div class="modal-content quiz-modal">
-      <span class="close" onclick="closeModal('foreign-language-quiz-modal')">&times;</span>
-      <h2>🗣️ Foreign Language Quiz</h2>
-      <p>Test your foreign language knowledge!</p>
-      <div id="fl-quiz-questions">
-        <div class="quiz-question active" id="fl-q1">
-          <p>What is "Hello" in Spanish?</p>
-          <button onclick="nextFLQuestion(this,'Hola')">Hola</button>
-          <button onclick="nextFLQuestion(this,'Bonjour')">Bonjour</button>
-          <button onclick="nextFLQuestion(this,'Ciao')">Ciao</button>
-        </div>
-        <div class="quiz-question" id="fl-q2">
-          <p>What does "Merci" mean in French?</p>
-          <button onclick="nextFLQuestion(this,'Thank you')">Thank you</button>
-          <button onclick="nextFLQuestion(this,'Goodbye')">Goodbye</button>
-          <button onclick="nextFLQuestion(this,'Please')">Please</button>
-        </div>
-        <div class="quiz-question" id="fl-finish">
-          <p>🎉 Well done! You finished the Foreign Language quiz.</p>
-          <button onclick="closeModal('foreign-language-quiz-modal')">Finish</button>
-        </div>
+      <div class="quiz-question active" id="gcse-question">
+        <p>Do you know what GCSEs are?</p>
+        <button onclick="nextQuestionGCSE('Yes')">Yes</button>
+        <button onclick="nextQuestionGCSE('No')">No</button>
       </div>
-    </div>
-  </div>
 
-  <!-- Computing Quiz Modal -->
-  <div id="computing-quiz-modal" class="modal">
-    <div class="modal-content quiz-modal">
-      <span class="close" onclick="closeModal('computing-quiz-modal')">&times;</span>
-      <h2>💻 Computing Quiz</h2>
-      <p>Test your basic computing knowledge!</p>
-      <div id="computing-quiz-questions">
-        <div class="quiz-question active" id="comp-q1">
-          <p>What does HTML stand for?</p>
-          <button onclick="nextCompQuestion(this,'HyperText Markup Language')">HyperText Markup Language</button>
-          <button onclick="nextCompQuestion(this,'Hyperlink Machine Language')">Hyperlink Machine Language</button>
-          <button onclick="nextCompQuestion(this,'Home Tool Markup Language')">Home Tool Markup Language</button>
-        </div>
-        <div class="quiz-question" id="comp-q2">
-          <p>Which device is used to input data into a computer?</p>
-          <button onclick="nextCompQuestion(this,'Keyboard')">Keyboard</button>
-          <button onclick="nextCompQuestion(this,'Monitor')">Monitor</button>
-          <button onclick="nextCompQuestion(this,'Printer')">Printer</button>
-        </div>
-        <div class="quiz-question" id="comp-q3">
-          <p>What is a binary number system based on?</p>
-          <button onclick="nextCompQuestion(this,'0 and 1')">0 and 1</button>
-          <button onclick="nextCompQuestion(this,'1 and 2')">1 and 2</button>
-          <button onclick="nextCompQuestion(this,'A and B')">A and B</button>
-        </div>
-        <div class="quiz-question" id="comp-finish">
-          <p>🎉 Great job! You finished the Computing quiz.</p>
-          <button onclick="closeModal('computing-quiz-modal')">Finish</button>
-        </div>
+      <div class="quiz-question" id="gcse-explanation">
+        <p>GCSEs are exams students take at the end of Year 11. No worries if you don’t know yet!</p>
+        <button onclick="nextAfterGCSE()">Continue</button>
+      </div>
+
+      <div class="quiz-question" id="subjects-like">
+        <p>Which subjects do you like? (Select all that apply)</p>
+        <label><input type="checkbox" value="Math"> Math</label>
+        <label><input type="checkbox" value="Science"> Science</label>
+        <label><input type="checkbox" value="English"> English</label>
+        <label><input type="checkbox" value="History"> History</label>
+        <label><input type="checkbox" value="Geography"> Geography</label>
+        <label><input type="checkbox" value="Foreign Language"> Foreign Language</label>
+        <label><input type="checkbox" value="Computing"> Computing</label>
+        <button onclick="nextMultiChoice('Subjects you like')">Next</button>
+      </div>
+
+      <div class="quiz-question" id="subjects-dislike">
+        <p>Which subjects do you dislike? (Select all that apply)</p>
+        <label><input type="checkbox" value="Math"> Math</label>
+        <label><input type="checkbox" value="Science"> Science</label>
+        <label><input type="checkbox" value="English"> English</label>
+        <label><input type="checkbox" value="History"> History</label>
+        <label><input type="checkbox" value="Geography"> Geography</label>
+        <label><input type="checkbox" value="Foreign Language"> Foreign Language</label>
+        <label><input type="checkbox" value="Computing"> Computing</label>
+        <button onclick="nextMultiChoice('Subjects you dislike')">Next</button>
+      </div>
+
+      <div class="quiz-question" id="subjects-more">
+        <p>Which subjects would you like to study more? (Select all that apply)</p>
+        <label><input type="checkbox" value="Math"> Math</label>
+        <label><input type="checkbox" value="Science"> Science</label>
+        <label><input type="checkbox" value="English"> English</label>
+        <label><input type="checkbox" value="History"> History</label>
+        <label><input type="checkbox" value="Geography"> Geography</label>
+        <label><input type="checkbox" value="Foreign Language"> Foreign Language</label>
+        <label><input type="checkbox" value="Computing"> Computing</label>
+        <button onclick="nextMultiChoice('Subjects to study more')">Finish</button>
+      </div>
+
+      <div class="quiz-question" id="finish-quiz">
+        <p>🎉 All done! Click outside to close this quiz.</p>
       </div>
     </div>
   </div>
