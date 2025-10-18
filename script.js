@@ -85,29 +85,50 @@ window.onclick = function (event) {
 // === Welcome Quiz Logic ===
 let knowsGCSE = true;
 
-function nextQuestion(answer, type = "") {
-  // Save answer in localStorage
+// For GCSE yes/no question
+function nextQuestionGCSE(answer) {
+  knowsGCSE = answer === "Yes";
+
   let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
-  quizData.push(answer);
+  quizData.push({ question: "Do you know GCSEs?", answer });
   localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
 
-  if (type === "gcse") {
-    knowsGCSE = answer === "Yes";
-  }
+  document.getElementById("gcse-question").classList.remove("active");
 
-  const current = document.querySelector('.quiz-question.active');
-  current.classList.remove('active');
-
-  let next;
-  if (!knowsGCSE && current.nextElementSibling.id !== "gcse-explanation") {
-    next = document.getElementById("gcse-explanation");
-  } else if (current.nextElementSibling) {
-    next = current.nextElementSibling;
+  if (!knowsGCSE) {
+    document.getElementById("gcse-explanation").classList.add("active");
   } else {
-    next = document.getElementById("finish-quiz");
+    document.getElementById("subjects-like").classList.add("active");
   }
+}
 
-  if (next) {
-    next.classList.add('active');
+// After GCSE explanation
+function nextAfterGCSE() {
+  document.getElementById("gcse-explanation").classList.remove("active");
+  document.getElementById("subjects-like").classList.add("active");
+}
+
+// Handle multiple-choice questions
+function nextMultiChoice(questionTitle) {
+  const activeDiv = document.querySelector(".quiz-question.active");
+  const checkboxes = activeDiv.querySelectorAll("input[type='checkbox']");
+  let selected = [];
+  checkboxes.forEach(cb => {
+    if (cb.checked) selected.push(cb.value);
+  });
+
+  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
+  quizData.push({ question: questionTitle, answer: selected });
+  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
+
+  activeDiv.classList.remove("active");
+
+  // Determine next question
+  if (activeDiv.id === "subjects-like") {
+    document.getElementById("subjects-dislike").classList.add("active");
+  } else if (activeDiv.id === "subjects-dislike") {
+    document.getElementById("subjects-more").classList.add("active");
+  } else if (activeDiv.id === "subjects-more") {
+    document.getElementById("finish-quiz").classList.add("active");
   }
 }
