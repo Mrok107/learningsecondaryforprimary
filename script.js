@@ -85,14 +85,23 @@ window.onclick = function (event) {
 // === Welcome Quiz Logic ===
 let knowsGCSE = true;
 
+// Store multi-choice answers
+let quizAnswers = {
+  liked: [],
+  disliked: [],
+  more: []
+};
+
 // GCSE question
 function nextQuestionGCSE(answer) {
   knowsGCSE = answer === "Yes";
-  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
-  quizData.push({ question: "Do you know GCSEs?", answer });
-  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
+
+  let savedQuiz = JSON.parse(localStorage.getItem("welcomeQuiz")) || [];
+  savedQuiz.push({ question: "Do you know GCSEs?", answer });
+  localStorage.setItem("welcomeQuiz", JSON.stringify(savedQuiz));
 
   document.getElementById("gcse-question").classList.remove("active");
+
   if (!knowsGCSE) {
     document.getElementById("gcse-explanation").classList.add("active");
   } else {
@@ -100,33 +109,51 @@ function nextQuestionGCSE(answer) {
   }
 }
 
-// After GCSE explanation
 function nextAfterGCSE() {
   document.getElementById("gcse-explanation").classList.remove("active");
   document.getElementById("subjects-like").classList.add("active");
 }
 
-// Multiple-choice question handler
-function nextMultiChoice(questionTitle) {
-  const activeDiv = document.querySelector(".quiz-question.active");
-  const checkboxes = activeDiv.querySelectorAll("input[type='checkbox']");
-  let selected = [];
+// Handle multi-choice questions
+function nextMultiChoice(type) {
+  let container, answers;
+  switch(type) {
+    case 'Subjects you like':
+      container = document.getElementById("subjects-like");
+      answers = quizAnswers.liked;
+      break;
+    case 'Subjects you dislike':
+      container = document.getElementById("subjects-dislike");
+      answers = quizAnswers.disliked;
+      break;
+    case 'Subjects to study more':
+      container = document.getElementById("subjects-more");
+      answers = quizAnswers.more;
+      break;
+    default:
+      return;
+  }
+
+  const checkboxes = container.querySelectorAll("input[type=checkbox]");
   checkboxes.forEach(cb => {
-    if (cb.checked) selected.push(cb.value);
+    if (cb.checked && !answers.includes(cb.value)) {
+      answers.push(cb.value);
+    }
   });
 
-  let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
-  quizData.push({ question: questionTitle, answer: selected });
-  localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
+  // Save to localStorage
+  let savedQuiz = JSON.parse(localStorage.getItem("welcomeQuiz")) || [];
+  savedQuiz.push({ question: type, answer: answers });
+  localStorage.setItem("welcomeQuiz", JSON.stringify(savedQuiz));
 
-  activeDiv.classList.remove("active");
+  container.classList.remove("active");
 
-  // Determine next question
-  if (activeDiv.id === "subjects-like") {
+  // Move to next section
+  if (type === "Subjects you like") {
     document.getElementById("subjects-dislike").classList.add("active");
-  } else if (activeDiv.id === "subjects-dislike") {
+  } else if (type === "Subjects you dislike") {
     document.getElementById("subjects-more").classList.add("active");
-  } else if (activeDiv.id === "subjects-more") {
+  } else if (type === "Subjects to study more") {
     document.getElementById("finish-quiz").classList.add("active");
   }
 }
