@@ -85,16 +85,14 @@ window.onclick = function (event) {
 // === Welcome Quiz Logic ===
 let knowsGCSE = true;
 
-// For GCSE yes/no question
+// GCSE question
 function nextQuestionGCSE(answer) {
   knowsGCSE = answer === "Yes";
-
   let quizData = JSON.parse(localStorage.getItem('welcomeQuiz')) || [];
   quizData.push({ question: "Do you know GCSEs?", answer });
   localStorage.setItem('welcomeQuiz', JSON.stringify(quizData));
 
   document.getElementById("gcse-question").classList.remove("active");
-
   if (!knowsGCSE) {
     document.getElementById("gcse-explanation").classList.add("active");
   } else {
@@ -108,7 +106,7 @@ function nextAfterGCSE() {
   document.getElementById("subjects-like").classList.add("active");
 }
 
-// Handle multiple-choice questions
+// Multiple-choice question handler
 function nextMultiChoice(questionTitle) {
   const activeDiv = document.querySelector(".quiz-question.active");
   const checkboxes = activeDiv.querySelectorAll("input[type='checkbox']");
