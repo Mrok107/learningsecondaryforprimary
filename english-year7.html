@@ -17,35 +17,50 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="card quiz">
-      <h2>📝 English Year 7 Quiz</h2>
+  <main class="container card quiz-modal" id="english-quiz">
+    <div class="quiz-question active" id="eng-q1">
+      <p>1. Which sentence uses the correct form of “their”?</p>
+      <button onclick="nextQuizQuestion(this, 'Their house is at the end of the street.', 'english')">Their house is at the end of the street.</button>
+      <button onclick="nextQuizQuestion(this, 'There house is at the end of the street.', 'english')">There house is at the end of the street.</button>
+      <button onclick="nextQuizQuestion(this, 'They’re house is at the end of the street.', 'english')">They’re house is at the end of the street.</button>
+    </div>
 
-      <!-- Question 1 -->
-      <div class="quiz-question active">
-        <p>1. Which sentence uses the correct form of “their”?</p>
-        <button onclick="nextEngQuestion(this, 'Their house is at the end of the street.')">Their house is at the end of the street.</button>
-        <button onclick="nextEngQuestion(this, 'There house is at the end of the street.')">There house is at the end of the street.</button>
-        <button onclick="nextEngQuestion(this, 'They’re house is at the end of the street.')">They’re house is at the end of the street.</button>
-      </div>
+    <div class="quiz-question" id="eng-q2">
+      <p>2. Which word is an adjective?</p>
+      <button onclick="nextQuizQuestion(this, 'Beautiful', 'english')">Beautiful</button>
+      <button onclick="nextQuizQuestion(this, 'Run', 'english')">Run</button>
+      <button onclick="nextQuizQuestion(this, 'Quickly', 'english')">Quickly</button>
+    </div>
 
-      <!-- Question 2 -->
-      <div class="quiz-question">
-        <p>2. Which word is an adjective?</p>
-        <button onclick="nextEngQuestion(this, 'Beautiful')">Beautiful</button>
-        <button onclick="nextEngQuestion(this, 'Run')">Run</button>
-        <button onclick="nextEngQuestion(this, 'Quickly')">Quickly</button>
-      </div>
+    <div class="quiz-question" id="eng-q3">
+      <p>3. What is a synonym for “happy”?</p>
+      <button onclick="nextQuizQuestion(this, 'Joyful', 'english')">Joyful</button>
+      <button onclick="nextQuizQuestion(this, 'Sad', 'english')">Sad</button>
+      <button onclick="nextQuizQuestion(this, 'Angry', 'english')">Angry</button>
+    </div>
 
-      <!-- Question 3 -->
-      <div class="quiz-question">
-        <p>3. What is a synonym for “happy”?</p>
-        <button onclick="nextEngQuestion(this, 'Joyful')">Joyful</button>
-        <button onclick="nextEngQuestion(this, 'Sad')">Sad</button>
-        <button onclick="nextEngQuestion(this, 'Angry')">Angry</button>
-      </div>
+    <div class="quiz-question" id="eng-q4">
+      <p>4. Choose the sentence with correct punctuation:</p>
+      <button onclick="nextQuizQuestion(this, 'My friend, who lives next door, is kind.', 'english')">My friend, who lives next door, is kind.</button>
+      <button onclick="nextQuizQuestion(this, 'My friend who lives next door is kind', 'english')">My friend who lives next door is kind</button>
+      <button onclick="nextQuizQuestion(this, 'My friend who lives next door, is kind', 'english')">My friend who lives next door, is kind</button>
+    </div>
 
-      <!-- Question 4 -->
-      <div class="quiz-question">
-        <p>4. Choose the sentence with correct punctuation:</p>
-        <button onclick="next
+    <div class="quiz-question" id="eng-q5">
+      <p>5. What does “narrative” mean?</p>
+      <button onclick="nextQuizQuestion(this, 'A story or account of events', 'english')">A story or account of events</button>
+      <button onclick="nextQuizQuestion(this, 'A list of facts', 'english')">A list of facts</button>
+      <button onclick="nextQuizQuestion(this, 'A question or riddle', 'english')">A question or riddle</button>
+    </div>
+
+    <div class="quiz-question" id="eng-finish">
+      <p>🎉 Great job! You finished the English quiz.</p>
+      <button onclick="finishQuiz('english')">Finish</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Learn Smart | English Year 7 🌈</p>
+  </footer>
+</body>
+</html>
