@@ -1,0 +1,36 @@
+<!-- Computing Quiz Modal -->
+<div id="computing-quiz-modal" class="modal">
+  <div class="modal-content quiz-modal">
+    <span class="close" onclick="closeModal('computing-quiz-modal')">&times;</span>
+    <h2>💻 Computing Quiz</h2>
+    <p>Test your basic computing knowledge!</p>
+
+    <div id="computing-quiz-questions">
+      <div class="quiz-question active" id="comp-q1">
+        <p>What does HTML stand for?</p>
+        <button onclick="nextCompQuestion(this, 'HyperText Markup Language')">HyperText Markup Language</button>
+        <button onclick="nextCompQuestion(this, 'Hyperlink Machine Language')">Hyperlink Machine Language</button>
+        <button onclick="nextCompQuestion(this, 'Home Tool Markup Language')">Home Tool Markup Language</button>
+      </div>
+
+      <div class="quiz-question" id="comp-q2">
+        <p>Which device is used to input data into a computer?</p>
+        <button onclick="nextCompQuestion(this, 'Keyboard')">Keyboard</button>
+        <button onclick="nextCompQuestion(this, 'Monitor')">Monitor</button>
+        <button onclick="nextCompQuestion(this, 'Printer')">Printer</button>
+      </div>
+
+      <div class="quiz-question" id="comp-q3">
+        <p>What is a binary number system based on?</p>
+        <button onclick="nextCompQuestion(this, '0 and 1')">0 and 1</button>
+        <button onclick="nextCompQuestion(this, '1 and 2')">1 and 2</button>
+        <button onclick="nextCompQuestion(this, 'A and B')">A and B</button>
+      </div>
+
+      <div class="quiz-question" id="comp-finish">
+        <p>🎉 Great job! You finished the Computing quiz.</p>
+        <button onclick="closeModal('computing-quiz-modal')">Finish</button>
+      </div>
+    </div>
+  </div>
+</div>
